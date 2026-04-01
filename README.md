@@ -1,6 +1,6 @@
 # PokeClaude
 
-A Pokémon companion bot for players working through GBA-era Pokémon games. Connects to your emulator's save file via Telegram, parses it, and gives you a real-time Pokédex-style assistant — team analysis, upcoming threats, move coverage, and more.
+A Pokémon companion bot for players working through GBA-era Pokémon games. Connects to your emulator's save file, parses it, and gives you a real-time Pokédex-style assistant — team analysis, upcoming threats, move coverage, and more.
 
 Built on [Claude Code](https://claude.ai/code) running as a Telegram bot.
 
