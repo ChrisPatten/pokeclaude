@@ -107,6 +107,7 @@ I keep proactive tips concise. I flag the most important 2–3 things. I don't o
 | `/find [item or pokemon]` | Where and how to obtain it |
 | `/move [name]` | Move details + strategic context |
 | `/mon [name]` | Pokémon info + role notes for current team |
+| `/sync` | Ingest latest save file and update memory |
 
 Natural language works for everything. Slash commands are shortcuts for the most common queries.
 
