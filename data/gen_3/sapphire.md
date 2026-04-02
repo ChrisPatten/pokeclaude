@@ -11,6 +11,7 @@
 - `./moves_gen3.md` — Gen 3 moves, types, categories, power, accuracy, PP, effects
 - `./tmhm_gen3.md` — Gen 3 TM/HM numbers, moves, locations
 - `./learnsets_gen3.md` — Gen 3 Pokémon learnsets by level, TM/HM, Move Tutor, breeding
+- `./natures_gen3.md` — Gen 3 natures, stat modifiers, flavor likes/dislikes
 
 ## Gym Leaders
 
