@@ -21,21 +21,34 @@ Built on [Claude Code](https://claude.ai/code) running as a Telegram bot.
 
 ```
 pokeclaudebot/
-├── CLAUDE.md           — agent instructions (identity, memory system, commands)
-├── parser/             — Gen III save file parser (Ruby/Sapphire .srm → JSON)
-│   ├── parse_save.py   — entry point
-│   ├── decode.py       — sector I/O, checksum, XOR decryption, string encoding
-│   ├── trainer.py      — trainer info, badges, location, inventory
-│   ├── pokemon.py      — party and PC box parsing
-│   └── data/           — JSON lookup tables (species, moves, items, natures, etc.)
-├── data/               — accumulated game reference data (per-game .md files)
-└── users/              — per-user data (gitignored)
+├── CLAUDE.md               — agent instructions (identity, memory system, commands)
+├── sync.sh                 — entry point for save sync; delegates to sync-save subagent
+├── start_pokeclaude.sh     — launches Claude Code in the correct working directory
+├── parser/                 — Gen III save file parser (Ruby/Sapphire .srm → JSON)
+│   ├── parse_save.py       — entry point
+│   ├── decode.py           — sector I/O, checksum, XOR decryption, string encoding
+│   ├── trainer.py          — trainer info, badges, location, inventory
+│   ├── pokemon.py          — party and PC box parsing
+│   └── data/               — JSON lookup tables (species, moves, items, natures, etc.)
+├── data/                   — accumulated game reference data
+│   └── gen_3/
+│       ├── sapphire.md     — gym leaders, routes, strategy notes; Supporting Files index
+│       ├── moves_gen3.md   — move details (power, accuracy, PP, type, effect)
+│       ├── learnsets_gen3.md
+│       ├── tmhm_gen3.md
+│       ├── pokedex_gen3.md
+│       ├── evolution_gen3.md
+│       ├── abilities_gen3.md
+│       ├── items_gen3.md
+│       └── catch_locations_gen3.md
+└── users/                  — per-user data (gitignored)
     └── <telegram_user_id>/
         ├── sync_save.sh
         ├── saves/
         └── memory/
             ├── MEMORY.md
-            └── box.md
+            ├── box.md
+            └── inventory.md
 ```
 
 The agent is Claude Code itself — `CLAUDE.md` is the system prompt. There is no separate bot runtime; Claude Code handles the Telegram integration via the built-in Telegram channel.
@@ -173,7 +186,9 @@ Not yet supported: Emerald, FireRed/LeafGreen (different offsets)
 
 ## Game Data
 
-`data/<game>.md` files accumulate reference information looked up during sessions (gym leaders, move data, learnsets, item locations). These are committed to the repo so facts don't need to be re-fetched across sessions.
+Game reference data lives in `data/<gen_#>/`. Each generation has a main game file (e.g. `data/gen_3/sapphire.md`) with gym leaders, routes, and strategy notes, plus a set of grep-optimized reference files for moves, learnsets, TM/HMs, Pokédex entries, evolutions, abilities, items, and catch locations.
+
+Every line in the reference files is self-contained — a keyword grep returns all relevant data with no further parsing needed. The agent greps these files before going to the web, and appends any new facts it fetches back into the appropriate file. These are committed to the repo so nothing needs to be re-fetched across sessions.
 
 ---
 
