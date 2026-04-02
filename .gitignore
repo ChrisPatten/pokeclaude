@@ -3,6 +3,8 @@ users/
 
 # Local Claude settings
 .claude/
+!.claude/settings.json
+!.claude/agents/sync-save.md
 
 # Environment
 .envrc
@@ -31,3 +33,6 @@ venv/
 *.swp
 *.swo
 *~
+
+# Local dev data
+data/pokeapi/
