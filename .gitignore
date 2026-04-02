@@ -2,9 +2,9 @@
 users/
 
 # Local Claude settings
-.claude/
+.claude/*
 !.claude/settings.json
-!.claude/agents/sync-save.md
+!.claude/agents
 
 # Environment
 .envrc

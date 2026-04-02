@@ -1,0 +1,21 @@
+{
+  "enabledPlugins": {
+    "telegram@claude-plugins-official": true
+  },
+  "permissions": {
+    "allow": [
+      "Bash(bash sync.sh *)",
+      "Bash(bash users/*/sync_save.sh)",
+      "Bash(md5 *)",
+      "Bash(python -m parser.parse_save *)",
+      "Bash(python3 -m parser.parse_save *)",
+      "mcp__plugin_telegram_telegram__reply",
+      "WebSearch",
+      "WebFetch(domain:bulbapedia.bulbagarden.net)",
+      "WebFetch(domain:www.serebii.net)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Edit(/data/*)",
+      "Edit(/users/*)"
+    ]
+  }
+}
