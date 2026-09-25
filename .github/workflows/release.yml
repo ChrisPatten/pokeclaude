@@ -1,0 +1,67 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Verify tag matches VERSION
+        run: |
+          tag="${GITHUB_REF#refs/tags/}"
+          expected="v$(cat VERSION)"
+          if [ "$tag" != "$expected" ]; then
+            echo "::error::Tag $tag does not match VERSION (expected $expected)"
+            exit 1
+          fi
+          echo "tag=$tag" >> "$GITHUB_ENV"
+
+      - name: Run test suite
+        run: python3 -m unittest discover -s tests -v
+
+      - name: Extract release notes
+        run: |
+          version="${tag#v}"
+          python3 scripts/bump_version.py --extract-notes "$version" > release_notes.md
+          echo "--- release notes ---"
+          cat release_notes.md
+
+      - name: Determine prerelease flag
+        run: |
+          version="${tag#v}"
+          major="${version%%.*}"
+          prerelease=false
+          if [ "$major" = "0" ]; then
+            prerelease=true
+          fi
+          case "$tag" in
+            *-*) prerelease=true ;;
+          esac
+          echo "prerelease=$prerelease" >> "$GITHUB_ENV"
+
+      - name: Create GitHub release
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          extra_flag=""
+          if [ "$prerelease" = "true" ]; then
+            extra_flag="--prerelease"
+          fi
+          gh release create "$tag" \
+            --title "$tag" \
+            --notes-file release_notes.md \
+            $extra_flag
