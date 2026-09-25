@@ -13,8 +13,21 @@ logger = logging.getLogger(__name__)
 SAVE_BLOCK_SIZE = 0xE000   # 57,344 bytes per block
 SECTOR_SIZE     = 0x1000   # 4,096 bytes per sector
 SECTOR_COUNT    = 14
-DATA_SIZE       = 0xFF4    # usable data bytes per sector
+DATA_SIZE       = 0xFF4    # max usable data bytes per sector (footer starts here)
 FOOTER_OFFSET   = 0xFF4
+SECTION_SIGNATURE = 0x08012025
+
+# Per-section checksummed/used data length. Gen III checksums only cover the
+# bytes each section actually uses, not the full 0xFF4 up to the footer.
+# Verified empirically against a real Ruby/Sapphire save: with these sizes,
+# all 14 sectors in both blocks pass their stored checksum.
+SECTION_DATA_SIZES: dict[int, int] = {
+    0: 0x890,
+    1: 0xF80, 2: 0xF80, 3: 0xF80, 4: 0xF80,
+    5: 0xF80, 6: 0xF80, 7: 0xF80, 8: 0xF80,
+    9: 0xF80, 10: 0xF80, 11: 0xF80, 12: 0xF80,
+    13: 0x7D0,
+}
 
 # ---------------------------------------------------------------------------
 # Gen III character table
@@ -57,61 +70,151 @@ _CHAR_TABLE: dict[int, str] = {
 # ---------------------------------------------------------------------------
 
 
-def _checksum(sector_data: bytes) -> int:
-    """Compute the Gen III sector checksum over the first DATA_SIZE bytes."""
+def _checksum(sector_data: bytes, length: int) -> int:
+    """Compute the Gen III sector checksum over the first *length* bytes.
+
+    *length* is section-specific (see SECTION_DATA_SIZES) — Gen III does not
+    checksum the full sector, only the portion that section actually uses.
+    """
     total = 0
-    for offset in range(0, DATA_SIZE, 4):
+    for offset in range(0, length, 4):
         (word,) = struct.unpack_from("<I", sector_data, offset)
         total = (total + word) & 0xFFFFFFFF
     return ((total >> 16) + (total & 0xFFFF)) & 0xFFFF
 
 
+def _read_footer(sector: bytes) -> tuple[int, int, int, int]:
+    """Return (section_id, checksum, signature, save_index) from a sector footer."""
+    section_id, checksum = struct.unpack_from("<HH", sector, FOOTER_OFFSET)
+    signature, save_index = struct.unpack_from("<II", sector, FOOTER_OFFSET + 4)
+    return section_id, checksum, signature, save_index
+
+
 def read_sectors(data: bytes) -> tuple[list[bytes], list[bytes]]:
-    """Split a save file into two blocks and validate sector checksums.
+    """Split a save file into its two raw 14-sector blocks (no validation).
 
-    Returns (sectors_A, sectors_B) — each list has 14 raw sector blobs.
+    Returns (sectors_A, sectors_B) — each list has 14 raw 0x1000-byte sectors.
     """
-    sectors_a: list[bytes] = []
-    sectors_b: list[bytes] = []
-
-    for block_idx, block_offset in enumerate((0, SAVE_BLOCK_SIZE)):
-        label = "A" if block_idx == 0 else "B"
-        dest = sectors_a if block_idx == 0 else sectors_b
-        for i in range(SECTOR_COUNT):
-            start = block_offset + i * SECTOR_SIZE
-            sector = data[start : start + SECTOR_SIZE]
-            dest.append(sector)
-
-            expected = struct.unpack_from("<H", sector, FOOTER_OFFSET + 2)[0]
-            actual = _checksum(sector)
-            if actual != expected:
-                logger.warning(
-                    "Block %s sector %d checksum mismatch: "
-                    "computed 0x%04X, stored 0x%04X",
-                    label, i, actual, expected,
-                )
-
+    sectors_a = [
+        data[i * SECTOR_SIZE : (i + 1) * SECTOR_SIZE] for i in range(SECTOR_COUNT)
+    ]
+    sectors_b = [
+        data[SAVE_BLOCK_SIZE + i * SECTOR_SIZE : SAVE_BLOCK_SIZE + (i + 1) * SECTOR_SIZE]
+        for i in range(SECTOR_COUNT)
+    ]
     return sectors_a, sectors_b
+
+
+def validate_block(raw_sectors: list[bytes]) -> dict:
+    """Validate one 14-sector block.
+
+    A sector is valid when its signature matches SECTION_SIGNATURE, its
+    section id is 0-13 and appears exactly once in the block, and its stored
+    checksum matches the computed one over that section's data length.
+
+    Returns a dict:
+        valid:            bool — every section id 0-13 present exactly once,
+                           all valid, and save_index is not the uninitialised
+                           sentinel (0xFFFFFFFF).
+        save_index:        int | None
+        invalid_sections:  sorted list of section ids that failed validation
+                           or are missing entirely
+        sections:          {section_id: raw_sector_bytes} for sections that
+                           passed validation
+    """
+    sections: dict[int, bytes] = {}
+    invalid_sections: set[int] = set()
+    save_indices: set[int] = set()
+    seen_ids: set[int] = set()
+
+    for sector in raw_sectors:
+        section_id, checksum, signature, save_index = _read_footer(sector)
+        save_indices.add(save_index)
+
+        ok = True
+        if signature != SECTION_SIGNATURE:
+            ok = False
+        if section_id not in SECTION_DATA_SIZES:
+            ok = False
+        elif section_id in seen_ids:
+            ok = False  # duplicate section id within the block
+        elif ok:
+            length = SECTION_DATA_SIZES[section_id]
+            if _checksum(sector, length) != checksum:
+                ok = False
+
+        if ok:
+            seen_ids.add(section_id)
+            sections[section_id] = sector
+        else:
+            invalid_sections.add(section_id)
+
+    missing_ids = set(range(SECTOR_COUNT)) - seen_ids
+    invalid_sections |= missing_ids
+
+    save_index = max(save_indices) if save_indices else None
+    uninitialised = save_index is None or save_index == 0xFFFFFFFF
+    valid = not invalid_sections and not uninitialised
+
+    return {
+        "valid": valid,
+        "save_index": save_index,
+        "invalid_sections": sorted(invalid_sections),
+        "sections": sections,
+    }
 
 
 def select_save_slot(
     sectors_a: list[bytes], sectors_b: list[bytes]
-) -> tuple[list[bytes], str]:
-    """Pick the more recent save block based on the save index."""
-    (idx_a,) = struct.unpack_from("<I", sectors_a[0], 0xFFC)
-    (idx_b,) = struct.unpack_from("<I", sectors_b[0], 0xFFC)
-    if idx_b > idx_a:
-        return sectors_b, "B"
-    return sectors_a, "A"
+) -> tuple[dict[int, bytes], str, int | None, list[int]]:
+    """Validate both blocks and pick the valid one with the higher save index.
+
+    Returns (sections_by_id, slot_label, save_index, invalid_sections).
+    Raises ValueError if neither block validates.
+    """
+    block_a = validate_block(sectors_a)
+    block_b = validate_block(sectors_b)
+
+    if block_a["valid"] and block_b["valid"]:
+        if block_b["save_index"] > block_a["save_index"]:
+            chosen, label = block_b, "B"
+        else:
+            chosen, label = block_a, "A"
+    elif block_a["valid"]:
+        chosen, label = block_a, "A"
+        logger.warning(
+            "Save block B failed validation (invalid sections: %s); using block A.",
+            block_b["invalid_sections"],
+        )
+    elif block_b["valid"]:
+        chosen, label = block_b, "B"
+        logger.warning(
+            "Save block A failed validation (invalid sections: %s); using block B.",
+            block_a["invalid_sections"],
+        )
+    else:
+        raise ValueError(
+            "No valid save block found in file. "
+            f"Block A invalid sections: {block_a['invalid_sections']} "
+            f"(save_index={block_a['save_index']}); "
+            f"Block B invalid sections: {block_b['invalid_sections']} "
+            f"(save_index={block_b['save_index']})"
+        )
+
+    return chosen["sections"], label, chosen["save_index"], chosen["invalid_sections"]
 
 
-def get_sector_data(sectors: list[bytes], section_id: int) -> bytes:
-    """Return the DATA_SIZE payload for the sector matching *section_id*."""
-    for sector in sectors:
-        (sid,) = struct.unpack_from("<H", sector, FOOTER_OFFSET)
-        if sid == section_id:
-            return sector[:DATA_SIZE]
-    raise ValueError(f"Section ID {section_id} not found in provided sectors")
+def get_sector_data(sections: dict[int, bytes], section_id: int) -> bytes:
+    """Return the validated data payload for *section_id*.
+
+    *sections* is the {section_id: raw_sector_bytes} dict returned by
+    select_save_slot(). The payload is trimmed to that section's actual data
+    length (SECTION_DATA_SIZES), not the full sector.
+    """
+    if section_id not in sections:
+        raise ValueError(f"Section ID {section_id} not present in this save block")
+    length = SECTION_DATA_SIZES.get(section_id, DATA_SIZE)
+    return sections[section_id][:length]
 
 
 def xor_decrypt(data: bytes, key: int) -> bytes:

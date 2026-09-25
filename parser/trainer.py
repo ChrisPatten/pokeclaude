@@ -1,53 +1,24 @@
 """Parse trainer info, badges, location, inventory, and Pokédex from
 Generation III (Ruby/Sapphire) save sectors."""
 
-import json
+import logging
 import struct
-from pathlib import Path
 
-from . import decode
+from . import data_loader, decode
 
-_DATA_DIR = Path(__file__).parent / "data"
-
-_items_cache: dict[str, str] | None = None
-_locations_cache: list[dict] | None = None
-
-
-def _load_items() -> dict[str, str]:
-    global _items_cache
-    if _items_cache is None:
-        with open(_DATA_DIR / "items.json") as f:
-            _items_cache = json.load(f)
-    return _items_cache
-
-
-def _load_locations() -> list[dict]:
-    global _locations_cache
-    if _locations_cache is None:
-        with open(_DATA_DIR / "locations.json") as f:
-            _locations_cache = json.load(f)
-    return _locations_cache
+logger = logging.getLogger(__name__)
 
 
 def _lookup_item(item_id: int) -> str:
-    items = _load_items()
-    return items.get(str(item_id), f"Unknown Item ({item_id})")
-
-
-def _lookup_location(map_bank: int, map_id: int) -> str:
-    locations = _load_locations()
-    for loc in locations:
-        if loc["map_bank"] == map_bank and loc["map_id"] == map_id:
-            return loc["name"]
-    return f"Unknown (bank={map_bank}, id={map_id})"
+    return data_loader.load_items().get(str(item_id), f"Unknown Item ({item_id})")
 
 
 # ---------------------------------------------------------------------------
 # Security key (needed for money/item decryption in Emerald; 0 in RS)
 # ---------------------------------------------------------------------------
 
-def _get_security_key(sectors: list[bytes]) -> int:
-    section0 = decode.get_sector_data(sectors, 0)
+def _get_security_key(sections: dict[int, bytes]) -> int:
+    section0 = decode.get_sector_data(sections, 0)
     return struct.unpack_from("<I", section0, 0x00AC)[0]
 
 
@@ -55,9 +26,9 @@ def _get_security_key(sectors: list[bytes]) -> int:
 # Trainer info
 # ---------------------------------------------------------------------------
 
-def parse_trainer(sectors: list[bytes]) -> dict:
-    section0 = decode.get_sector_data(sectors, 0)
-    section1 = decode.get_sector_data(sectors, 1)
+def parse_trainer(sections: dict[int, bytes]) -> dict:
+    section0 = decode.get_sector_data(sections, 0)
+    section1 = decode.get_sector_data(sections, 1)
     security_key = struct.unpack_from("<I", section0, 0x00AC)[0]
 
     name = decode.decode_string(section0[0x0000:0x0007])
@@ -97,8 +68,8 @@ HOENN_BADGES = [
 ]
 
 
-def parse_badges(sectors: list[bytes]) -> dict:
-    section2 = decode.get_sector_data(sectors, 2)
+def parse_badges(sections: dict[int, bytes]) -> dict:
+    section2 = decode.get_sector_data(sections, 2)
 
     # Badges are stored as event flags in Section 2.
     # Event flags start at offset 0x2A0 in Section 2.
@@ -127,20 +98,29 @@ def parse_badges(sectors: list[bytes]) -> dict:
 # Location
 # ---------------------------------------------------------------------------
 
-def parse_location(sectors: list[bytes]) -> dict:
-    section1 = decode.get_sector_data(sectors, 1)
+def parse_location(sections: dict[int, bytes]) -> dict:
+    section1 = decode.get_sector_data(sections, 1)
 
     # SaveBlock1 layout: pos (4 bytes), then WarpData location
     # WarpData: mapGroup (1 byte), mapNum (1 byte), warpId, x, y
     map_bank = section1[0x0004]  # mapGroup
     map_id = section1[0x0005]    # mapNum
-    name = _lookup_location(map_bank, map_id)
+
+    name = data_loader.load_location_index().get((map_bank, map_id))
+    known = name is not None
+    if not known:
+        name = f"Unknown (bank={map_bank}, id={map_id})"
+        logger.warning(
+            "Unknown map bank=%d id=%d — add to parser/data/locations.json",
+            map_bank, map_id,
+        )
 
     return {
         "location": {
             "map_bank": map_bank,
             "map_id": map_id,
             "name": name,
+            "known": known,
         }
     }
 
@@ -153,7 +133,7 @@ def _parse_item_pocket(
     data: bytes, offset: int, capacity: int, security_key: int,
     is_key_items: bool = False,
 ) -> list[dict] | list[str]:
-    items = _load_items()
+    items = data_loader.load_items()
     result: list = []
     qty_mask = security_key & 0xFFFF
 
@@ -175,9 +155,9 @@ def _parse_item_pocket(
     return result
 
 
-def parse_inventory(sectors: list[bytes]) -> dict:
-    section1 = decode.get_sector_data(sectors, 1)
-    security_key = _get_security_key(sectors)
+def parse_inventory(sections: dict[int, bytes]) -> dict:
+    section1 = decode.get_sector_data(sections, 1)
+    security_key = _get_security_key(sections)
 
     return {
         "inventory": {
@@ -206,8 +186,8 @@ def _count_bits(data: bytes, num_bits: int) -> int:
     return count
 
 
-def parse_pokedex(sectors: list[bytes]) -> dict:
-    section0 = decode.get_sector_data(sectors, 0)
+def parse_pokedex(sections: dict[int, bytes]) -> dict:
+    section0 = decode.get_sector_data(sections, 0)
 
     # Pokédex owned (caught) and seen flags — offsets for RS
     # These are 49-byte bitfields (386 pokemon)
