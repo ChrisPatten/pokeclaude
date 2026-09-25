@@ -58,7 +58,7 @@ Category:Main Items | Name:Super Potion | Price:700 | Description:Restores 50HP 
 Category:Main Items | Name:Super Repel | Price:500 | Description:Repels weaker Pokemon for 200 steps | Location:Fallarbor, Lavaridge and Fortree PokeMarts
 Category:Main Items | Name:Thunderstone | Price:- | Description:Evolves Eevee and Pikachu | Location:New Mauville
 Category:Main Items | Name:Tinymushroom | Price:- | Description:Sell for money | Location:Petalburg Woods
-Category:Main Items | Name:Water Stone | Price:- | Description:Evolves Eevee, Lombre, Poliwag, Shellder and Staryu | Location:Abandoned Ship
+Category:Main Items | Name:Water Stone | Price:- | Description:Evolves Eevee, Lombre, Poliwag, Shellder and Staryu | Location:Abandoned Ship Room 3 (requires Dive)
 Category:Main Items | Name:White Flute | Price:1000 ashes | Description:Increases wild Pokemon encounters | Location:Glass Workshop (Route 113)
 Category:Main Items | Name:X Accuracy | Price:950 | Description:Raises accuracy in a battle | Location:Most PokeMarts
 Category:Main Items | Name:X Attack | Price:500 | Description:Raises attack in a battle | Location:Most PokeMarts
@@ -160,8 +160,8 @@ Category:Pokeballs | Name:Pokeball | Price:200 | Description:Catches Pokemon | L
 Category:Pokeballs | Name:Great Ball | Price:600 | Description:Greater chance of catching Pokemon than a Pokeball | Location:Slateport, Mauville, Verdanturf and Fallarbor PokeMarts
 Category:Pokeballs | Name:Ultra Ball | Price:1200 | Description:Greater chance of catching Pokemon than a Great Ball | Location:Fortree, Mossdeep and Sootopolis PokeMarts
 Category:Pokeballs | Name:Master Ball | Price:- | Description:Always catches Pokemon | Location:Lilycove MegaMart Lottery; Team Magma/Aqua Base
-Category:Pokeballs | Name:Dive Ball | Price:1000 | Description:Greater chance of catching underwater Pokemon | Location:Mossdeep PokeMart; Abandoned Ship
-Category:Pokeballs | Name:Luxury Ball | Price:- | Description:Pokemon caught will like you more | Location:Abandoned Ship, Master Rank Contests
+Category:Pokeballs | Name:Dive Ball | Price:1000 | Description:Greater chance of catching underwater Pokemon | Location:Mossdeep PokeMart; Abandoned Ship B1F (no Dive needed)
+Category:Pokeballs | Name:Luxury Ball | Price:- | Description:Pokemon caught will like you more | Location:Abandoned Ship Room 6 (requires Dive); Master Rank Contests
 Category:Pokeballs | Name:Nest Ball | Price:1000 | Description:Greater chance of catching Pokemon the lower its level | Location:Verdanturf PokeMart; Route 120; Team Magma/Aqua Base
 Category:Pokeballs | Name:Net Ball | Price:1000 | Description:Greater chance of catching Water and Bug Pokemon | Location:Mossdeep PokeMart
 Category:Pokeballs | Name:Premier Ball | Price:- | Description:Catches Pokemon | Location:Rustboro City
@@ -207,7 +207,7 @@ Category:Key Items | Name:Rm 6 Key | Description:Unlocks a room on the Abandoned
 Category:Key Items | Name:Root Fossil | Description:Resurrect to become Lileep | Location:Route 111 Desert
 Category:Key Items | Name:Running Shoes | Description:Allows you to run by holding B | Location:Mom (Oldale Town)
 Category:Key Items | Name:SS Ticket | Description:Allows entry to the SS Tidal | Location:Dad (Oldale Town)
-Category:Key Items | Name:Scanner | Description:Trade this with Captain Stern for a Deepseatooth/Deepseascale | Location:Abandoned Ship
+Category:Key Items | Name:Scanner | Description:Trade this with Captain Stern for a Deepseatooth/Deepseascale | Location:Abandoned Ship Room 2 (requires Dive)
 Category:Key Items | Name:Soot Sack | Description:Collects soot for the Glass Workshop | Location:Glass Workshop (Route 113)
 Category:Key Items | Name:Storage Key | Description:Unlocks the storage room on the Abandoned Ship | Location:Abandoned Ship
 Category:Key Items | Name:Super Rod | Description:Fish for high-levelled water Pokemon | Location:Mossdeep City

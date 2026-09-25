@@ -381,5 +381,7 @@
   {"map_bank": 26, "map_id": 32, "name": "Secret Base (Yellow Cave 1)"},
   {"map_bank": 26, "map_id": 33, "name": "Secret Base (Yellow Cave 2)"},
   {"map_bank": 26, "map_id": 34, "name": "Secret Base (Yellow Cave 3)"},
-  {"map_bank": 26, "map_id": 35, "name": "Secret Base (Yellow Cave 4)"}
+  {"map_bank": 26, "map_id": 35, "name": "Secret Base (Yellow Cave 4)"},
+  {"map_bank": 32, "map_id": 0, "name": "Route 119 - Weather Institute 1F"},
+  {"map_bank": 32, "map_id": 1, "name": "Route 119 - Weather Institute 2F"}
 ]

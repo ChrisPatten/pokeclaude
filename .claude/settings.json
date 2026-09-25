@@ -1,7 +1,5 @@
 {
-  "enabledPlugins": {
-    "telegram@claude-plugins-official": true
-  },
+  "enableAllProjectMcpServers": true,
   "permissions": {
     "allow": [
       "Bash(bash sync.sh *)",

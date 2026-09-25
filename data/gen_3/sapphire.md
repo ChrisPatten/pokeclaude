@@ -12,6 +12,7 @@
 - `./tmhm_gen3.md` — Gen 3 TM/HM numbers, moves, locations
 - `./learnsets_gen3.md` — Gen 3 Pokémon learnsets by level, TM/HM, Move Tutor, breeding
 - `./natures_gen3.md` — Gen 3 natures, stat modifiers, flavor likes/dislikes
+- `./shops_gen3.md` — PokéMart inventories by town, shop prices, TM sources
 
 ## Gym Leaders
 
@@ -43,6 +44,10 @@
 ## Key Items
 
 - **Itemfinder**: Given by rival (May/Brendan) on Route 110 after battling them; required to find hidden items. Use from Key Items — chimes and character faces direction of nearest hidden item; press A when adjacent (not on top of it).
+- **Fossil Revival (Devon Corp, Rustboro, 2F)**: Hand fossil to scientist → leave the room → re-enter → pick up revived Pokémon. No story gate, no extended wait. Root Fossil → Lileep (Rock/Grass, Lv. 20). Claw Fossil → Anorith (Rock/Bug, Lv. 20).
+- **Pokéblock Case**: Required to enter Safari Zone. Get it free from a little girl inside the Contest Hall in Slateport City. Use Berry Blender at any Contest Hall (Verdanturf, Fallarbor, Slateport, Lilycove) with NPCs — berries in, Pokéblocks out. Feed to Pokémon to raise contest stats. Just having the case in bag satisfies the Safari Zone gate.
+- **Safari Zone mechanics (Hoenn)**: ₽500 entry, 30 Safari Balls, 500 steps. Encounter options: Throw Ball, Go Near (sneak up), Pokéblock, Run. Go Near raises catch rate but raises flee chance. Pokéblock calms the Pokémon (lowers flee chance, may lower catch rate). Optimal for rare targets: Pokéblock → Go Near → Throw Ball. NOT the Kanto mud/bait system.
+- **Safari Zone Area 4 access**: Area 4 is north of Area 1. Requires Acro Bike — narrow white wooden planks block the path; Mach Bike overshoots. Technique: stand on plank, hold B ~2 seconds until bunny hopping in place, then D-pad to hop across. Heracross and Phanpy found in Area 4 grass.
 
 ## Berries & RTC
 

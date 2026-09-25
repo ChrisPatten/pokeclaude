@@ -59,6 +59,7 @@ The JSON structure includes:
 - `boxes` — list of boxes, each with a list of Pokémon (same structure as party members)
 - `items` — categorized inventory: `items`, `key_items`, `poke_balls`, `tms_hms`, `berries`
 - `pokedex` — seen/caught counts
+- `daycare` — list of up to 2 deposited Pokémon (same structure as box Pokémon, may be empty)
 - `save_metadata` — parsed_at timestamp
 
 ---
@@ -81,7 +82,20 @@ Update the following sections in place. Do not rewrite sections you don't have d
 - Held item
 - Notes: keep existing strategic notes if the Pokémon is unchanged; write new notes if the mon is new to party or has changed significantly
 
+**Eggs:** If a party slot has `"is_egg": true`, format it as:
+`### <slot>. [EGG] <species_name> — steps remaining unknown`
+- Do not list stats, moves, or nature
+- Note: `Egg. Has not hatched yet.`
+
 **Boxed — Notable** — Update from box data. Keep existing strategic notes for Pokémon that are still in the box. Remove entries for Pokémon that have left the box. Add new entries for newly boxed Pokémon that are worth noting (evolved forms, good natures, high level, strategic value). Pokédex fillers and early-route catches with no value don't need entries here.
+
+**Daycare** — Add or update a `## Daycare` section immediately after Current Party. If `daycare` is empty, write `_Empty._`. If occupied, list each deposited Pokémon:
+```
+### <slot>. <Species> — Lv. <N> | <Type> | <Nature>
+- **Moves:** <move list>
+- **Notes:** <one-line strategic note — why it's there, what to do with it>
+```
+Preserve notes from prior syncs if the Pokémon is unchanged.
 
 **Save History** — Append a new row:
 ```

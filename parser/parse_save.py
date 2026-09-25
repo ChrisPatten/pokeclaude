@@ -25,6 +25,7 @@ def parse(srm_path: str) -> dict:
     result.update(trainer.parse_location(sectors))
     result["party"] = pokemon.parse_party(sectors)
     result["boxes"] = pokemon.parse_boxes(sectors)
+    result["daycare"] = pokemon.parse_daycare(sectors)
     result.update(trainer.parse_inventory(sectors))
     result.update(trainer.parse_pokedex(sectors))
     result["save_metadata"] = {

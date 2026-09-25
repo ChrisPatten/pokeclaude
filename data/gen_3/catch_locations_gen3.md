@@ -61,7 +61,7 @@ Location:Route 115 | Method:Old Rod | Pokemon:Tentacool, Magikarp
 Location:Route 115 | Method:Good Rod | Pokemon:Tentacool, Magikarp, Wailmer
 Location:Route 115 | Method:Super Rod | Pokemon:Wailmer
 Location:Route 116 | Method:Grass | Pokemon:Abra, Poochyena, Zigzagoon, Taillow, Nincada, Whismur, Skitty
-Location:Route 117 | Method:Grass | Pokemon:Oddish, Marill, Poochyena, Zigzagoon, Surskit, Volbeat, Illumise, Roselia
+Location:Route 117 | Method:Grass | Pokemon:Oddish(10%), Marill(10%), Poochyena(30%), Zigzagoon(30%), Roselia(30%), Surskit(1%), Volbeat(Ruby:1%/Sapphire:18%), Illumise(Ruby:18%/Sapphire:1%) | Note:Illumise is 1% in Sapphire; Volbeat is 1% in Ruby — both available in both versions but rates swap
 Location:Route 117 | Method:Surf | Pokemon:Marill, Surskit
 Location:Route 117 | Method:Old Rod | Pokemon:Goldeen, Magikarp
 Location:Route 117 | Method:Good Rod | Pokemon:Goldeen, Magikarp, Corphish
@@ -77,7 +77,7 @@ Location:Route 119 | Method:Old Rod | Pokemon:Tentacool, Magikarp
 Location:Route 119 | Method:Good Rod | Pokemon:Tentacool, Magikarp, Carvanha
 Location:Route 119 | Method:Super Rod | Pokemon:Carvanha
 Location:Route 119 | Method:Feebas | Pokemon:6 random water tiles on this route; any rod, 50% rate on Feebas tiles. Tile locations tied to Dewford Town trend — change when trend changes.
-Location:Route 120 | Method:Long Grass | Pokemon:Oddish, Marill, Mightyena, Linoone, Absol, Surskit
+Location:Route 120 | Method:Long Grass | Pokemon:Oddish (25%), Marill (15%), Poochyena (20%), Mightyena (30%), Linoone (30%), Absol (8% — Lv.25-27), Surskit (1%), Kecleon (1% — Devon Scope required)
 Location:Route 120 | Method:Surf | Pokemon:Marill, Surskit
 Location:Route 120 | Method:Old Rod | Pokemon:Goldeen, Magikarp
 Location:Route 120 | Method:Good Rod | Pokemon:Goldeen, Magikarp, Barboach
@@ -169,22 +169,22 @@ Location:Meteor Falls | Method:B1F 2R (cave) | Pokemon:Golbat, Lunatone, Bagon
 Location:Meteor Falls | Method:B1F 2R (Surf) | Pokemon:Golbat, Lunatone
 Location:Meteor Falls | Method:B1F 2R (Good Rod) | Pokemon:Goldeen, Magikarp, Barboach
 Location:Meteor Falls | Method:B1F 2R (Super Rod) | Pokemon:Barboach, Whiscash
-Location:Safari Zone (Hoenn) | Method:Area 1 (grass) | Pokemon:Pikachu, Oddish, Gloom, Doduo, Natu, Girafarig, Wobbuffet
-Location:Safari Zone (Hoenn) | Method:Area 1 (Surf) | Pokemon:Psyduck
-Location:Safari Zone (Hoenn) | Method:Area 1 (fishing) | Pokemon:Goldeen, Magikarp, Seaking
-Location:Safari Zone (Hoenn) | Method:Area 2 (grass) | Pokemon:Pikachu, Oddish, Gloom, Doduo, Natu, Girafarig, Wobbuffet
-Location:Safari Zone (Hoenn) | Method:Area 2 (Surf) | Pokemon:Psyduck
-Location:Safari Zone (Hoenn) | Method:Area 2 (fishing) | Pokemon:Goldeen, Magikarp, Seaking
-Location:Safari Zone (Hoenn) | Method:Area 3 (grass) | Pokemon:Oddish, Gloom, Doduo, Dodrio, Rhyhorn, Pinsir
-Location:Safari Zone (Hoenn) | Method:Area 3 (Surf) | Pokemon:Psyduck, Golduck
-Location:Safari Zone (Hoenn) | Method:Area 3 (fishing) | Pokemon:Goldeen, Magikarp, Seaking
-Location:Safari Zone (Hoenn) | Method:Area 4 (grass) | Pokemon:Oddish, Gloom, Natu, Xatu, Heracross, Phanpy
-Location:Safari Zone (Hoenn) | Method:Area 4 (Rock Smash) | Pokemon:Geodude
-Location:Safari Zone (Hoenn) | Method:Area 5 (grass) | Pokemon:Hoothoot, Spinarak, Mareep, Aipom, Sunkern, Gligar, Snubbull, Stantler
-Location:Safari Zone (Hoenn) | Method:Area 5 (Surf) | Pokemon:Marill, Wooper, Quagsire
-Location:Safari Zone (Hoenn) | Method:Area 5 (fishing) | Pokemon:Goldeen, Magikarp, Remoraid, Seaking, Octillery
-Location:Safari Zone (Hoenn) | Method:Area 6 (grass) | Pokemon:Hoothoot, Ledyba, Aipom, Sunkern, Pineco, Teddiursa, Houndour, Miltank
-Location:Safari Zone (Hoenn) | Method:Area 6 (Rock Smash) | Pokemon:Shuckle
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 1 (grass) | Pokemon:Pikachu, Oddish, Gloom, Doduo, Natu, Girafarig, Wobbuffet
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 1 (Surf) | Pokemon:Psyduck
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 1 (fishing) | Pokemon:Goldeen, Magikarp, Seaking
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 2 (grass) | Pokemon:Pikachu, Oddish, Gloom, Doduo, Natu, Girafarig, Wobbuffet
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 2 (Surf) | Pokemon:Psyduck
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 2 (fishing) | Pokemon:Goldeen, Magikarp, Seaking
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 3 (grass) | Pokemon:Oddish, Gloom, Doduo, Dodrio, Rhyhorn, Pinsir
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 3 (Surf) | Pokemon:Psyduck, Golduck
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 3 (fishing) | Pokemon:Goldeen, Magikarp, Seaking
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 4 (grass) | Pokemon:Oddish, Gloom, Natu, Xatu, Heracross, Phanpy
+Location:Safari Zone (Hoenn, Ruby/Sapphire) | Method:Area 4 (Rock Smash) | Pokemon:Geodude
+Location:Safari Zone (Hoenn, Emerald only) | Method:Area 5 (grass) | Pokemon:Hoothoot, Spinarak, Mareep, Aipom, Sunkern, Gligar, Snubbull, Stantler
+Location:Safari Zone (Hoenn, Emerald only) | Method:Area 5 (Surf) | Pokemon:Marill, Wooper, Quagsire
+Location:Safari Zone (Hoenn, Emerald only) | Method:Area 5 (fishing) | Pokemon:Goldeen, Magikarp, Remoraid, Seaking, Octillery
+Location:Safari Zone (Hoenn, Emerald only) | Method:Area 6 (grass) | Pokemon:Hoothoot, Ledyba, Aipom, Sunkern, Pineco, Teddiursa, Houndour, Miltank
+Location:Safari Zone (Hoenn, Emerald only) | Method:Area 6 (Rock Smash) | Pokemon:Shuckle
 Location:Abandoned Ship (Route 108 area) | Method:Surf | Pokemon:Tentacool, Tentacruel
 Location:Abandoned Ship (Route 108 area) | Method:Old Rod | Pokemon:Tentacool, Magikarp
 Location:Abandoned Ship (Route 108 area) | Method:Good Rod | Pokemon:Tentacool, Magikarp

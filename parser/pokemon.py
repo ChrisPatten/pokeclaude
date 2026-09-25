@@ -15,6 +15,7 @@ _species_cache: dict[str, str] | None = None
 _moves_cache: dict[str, dict] | None = None
 _natures_cache: list[dict] | None = None
 _items_cache: dict[str, str] | None = None
+_growth_rates_cache: dict[str, str] | None = None
 
 
 def _load_species() -> dict[str, str]:
@@ -248,20 +249,63 @@ def parse_party(sectors: list[bytes]) -> list[dict[str, Any]]:
 # Box parsing
 # ---------------------------------------------------------------------------
 
-def _estimate_level(experience: int) -> int:
-    """Approximate level from EXP using Medium Fast (n^3) curve."""
+def _load_growth_rates() -> dict[str, str]:
+    global _growth_rates_cache
+    if _growth_rates_cache is None:
+        with open(_DATA_DIR / "growth_rates.json") as f:
+            data = json.load(f)
+        _growth_rates_cache = {k: v for k, v in data.items() if k != "comment"}
+    return _growth_rates_cache
+
+
+def _exp_for_level(n: int, growth_rate: str) -> int:
+    """Return the minimum EXP required to be at level n."""
+    if n <= 1:
+        return 0
+    if growth_rate == "medium_fast":
+        return n ** 3
+    if growth_rate == "erratic":
+        if n <= 50:
+            return n ** 3 * (100 - n) // 50
+        if n <= 68:
+            return n ** 3 * (150 - n) // 100
+        if n <= 98:
+            return n ** 3 * ((1911 - 10 * n) // 3) // 500
+        return n ** 3 * (160 - n) // 100
+    if growth_rate == "fluctuating":
+        if n <= 15:
+            return n ** 3 * (((n + 1) // 3) + 24) // 50
+        if n <= 36:
+            return n ** 3 * (n + 14) // 50
+        return n ** 3 * ((n // 2) + 32) // 50
+    if growth_rate == "medium_slow":
+        return max(0, (6 * n ** 3) // 5 - 15 * n ** 2 + 100 * n - 140)
+    if growth_rate == "fast":
+        return 4 * n ** 3 // 5
+    if growth_rate == "slow":
+        return 5 * n ** 3 // 4
+    # default fallback
+    return n ** 3
+
+
+def _estimate_level(experience: int, growth_rate: str = "medium_fast") -> int:
+    """Derive level from EXP using the correct growth rate curve."""
     if experience <= 0:
         return 1
-    level = int(round(experience ** (1 / 3)))
-    return max(1, min(100, level))
+    for lv in range(100, 0, -1):
+        if _exp_for_level(lv, growth_rate) <= experience:
+            return lv
+    return 1
 
+
+_BOX_SECTION_DATA_SIZE = 3968  # Gen 3 box sections use 3968 bytes, not the full 4084
 
 def _concat_box_data(sectors: list[bytes]) -> bytes:
     """Concatenate sections 5-13 into PC storage blob."""
     parts = []
     for section_id in range(5, 14):
         try:
-            parts.append(decode.get_sector_data(sectors, section_id))
+            parts.append(decode.get_sector_data(sectors, section_id)[:_BOX_SECTION_DATA_SIZE])
         except ValueError:
             break
     return b"".join(parts)
@@ -335,7 +379,9 @@ def parse_boxes(sectors: list[bytes]) -> list[dict[str, Any]]:
             if subs["item_id"] == 0:
                 held_item = "None"
 
-            level = _estimate_level(subs["experience"])
+            growth_rates = _load_growth_rates()
+            growth_rate = growth_rates.get(str(subs["species_id"]), "medium_fast")
+            level = _estimate_level(subs["experience"], growth_rate)
 
             move_names = []
             for mid in subs["move_ids"]:
@@ -367,3 +413,87 @@ def parse_boxes(sectors: list[bytes]) -> list[dict[str, Any]]:
         })
 
     return boxes
+
+
+# ---------------------------------------------------------------------------
+# Daycare parsing
+# ---------------------------------------------------------------------------
+
+# Section 4 offsets for the two daycare slots (box-format, 80 bytes each).
+# Confirmed empirically against RS save structure.
+_DAYCARE_SECTION = 4
+_DAYCARE_SLOT_OFFSETS = (0x011C, 0x016C)
+
+
+def _parse_box_mon(mon_data: bytes, slot: int,
+                   species_data: dict, items: dict,
+                   natures: list, growth_rates: dict) -> dict | None:
+    """Parse one 80-byte box-format Pokémon record. Returns None if empty."""
+    if len(mon_data) < 80:
+        return None
+    pv = struct.unpack_from("<I", mon_data, 0)[0]
+    ot_id = struct.unpack_from("<I", mon_data, 4)[0]
+    if pv == 0 and ot_id == 0:
+        return None
+
+    nickname = decode.decode_string(mon_data[8:18])
+
+    try:
+        encrypted = mon_data[32:80]
+        subs = _parse_substructures(pv, ot_id, encrypted)
+    except Exception:
+        return None
+
+    if subs["species_id"] == 0:
+        return None
+
+    nature_name = (natures[pv % 25]["name"]
+                   if pv % 25 < len(natures) else "Unknown")
+    species_name = species_data.get(str(subs["species_id"]),
+                                    f"Unknown ({subs['species_id']})")
+    held_item = items.get(str(subs["item_id"]), "None") if subs["item_id"] else "None"
+    growth_rate = growth_rates.get(str(subs["species_id"]), "medium_fast")
+    level = _estimate_level(subs["experience"], growth_rate)
+
+    move_names = []
+    moves_data = _load_moves()
+    for mid in subs["move_ids"]:
+        if mid == 0:
+            continue
+        move_names.append(moves_data.get(str(mid), {"name": f"Move {mid}"})["name"])
+
+    misc_flags = mon_data[0x13]
+    is_egg = subs["is_egg"] or bool(misc_flags & (1 << 2))
+
+    return {
+        "slot": slot,
+        "species_id": subs["species_id"],
+        "species_name": species_name,
+        "nickname": nickname,
+        "level": level,
+        "nature": nature_name,
+        "held_item": held_item,
+        "moves": move_names,
+        "is_egg": is_egg,
+    }
+
+
+def parse_daycare(sectors: list[bytes]) -> list[dict]:
+    """Return up to 2 deposited Pokémon from the Gen III daycare."""
+    species_data = _load_species()
+    items = _load_items()
+    natures = _load_natures()
+    growth_rates = _load_growth_rates()
+
+    try:
+        sec4 = decode.get_sector_data(sectors, _DAYCARE_SECTION)
+    except ValueError:
+        return []
+
+    result = []
+    for slot_idx, offset in enumerate(_DAYCARE_SLOT_OFFSETS, start=1):
+        mon_data = sec4[offset: offset + 80]
+        mon = _parse_box_mon(mon_data, slot_idx, species_data, items, natures, growth_rates)
+        if mon:
+            result.append(mon)
+    return result
