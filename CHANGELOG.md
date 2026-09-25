@@ -26,6 +26,38 @@ refactors, reference-data corrections, new reference files — is **minor** or
 
 ## [Unreleased]
 
+### Added
+
+- **Pokémon Red and Blue (Gen 1) support.** Set `"game": "red"` (or
+  `"blue"`) and `"gen": 1` in a trainer's `config.json` and `/sync` works the
+  same way it does for Sapphire: party, all 12 PC boxes, the daycare, bag and
+  PC items, badges, money, coins, Pokédex counts, rival name, and location.
+  The save's checksum is verified, so a corrupt or never-saved file is
+  rejected instead of synced. `/diff` tracks each Pokémon across syncs by its
+  original trainer ID and DVs (Gen 1 has no personality value).
+- Gen 1 reference data in `data/gen_1/`: Pokédex, moves, learnsets, TM/HM
+  locations, evolutions, items, wild encounters by version, shops, every gym
+  leader / Elite Four / rival team with exact movesets, and the Gen 1 type
+  chart — all generated from the pret/pokered decompilation by
+  `scripts/build_gen1_data.py`. `data/gen_1/red_blue.md` covers progression,
+  HMs, version exclusives, and Gen 1 battle mechanics (Special stat,
+  Speed-based crits, the Focus Energy bug, badge boosts, obedience).
+- `CLAUDE.md` and the `pokeclaude-sync` skill are generation-aware: Gen 1
+  memory files skip natures, abilities, and held items, and move evaluation
+  compares Attack against Special instead of reading a nature.
+- `python3 -m parser.parse_save` takes `--gen {1,3}`; without it the format
+  is detected from the file size. The parsed output has a new
+  `save_metadata.generation` field (Gen 3 saves report `3`). If you keep a
+  local `tests/fixtures/sapphire.golden.json`, regenerate it once with
+  `UPDATE_GOLDEN=1 python3 -m unittest tests.test_parser_golden`.
+- `tests/data/gen1_red_ingame.sav`, a save written by Pokémon Red itself, and
+  `scripts/make_gen1_test_save.py` to regenerate it.
+
+### Changed
+
+- Archived and rejected save copies keep the trainer's save file extension
+  (`.sav` for a Red/Blue trainer). Gen 3 archives are still `.srm`.
+
 ## [0.1.0] - 2026-09-25
 
 First tagged release. Everything below shipped together as the project's

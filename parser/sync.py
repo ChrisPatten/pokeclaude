@@ -1,7 +1,7 @@
 """sync.py — deterministic save-sync CLI.
 
     python3 -m parser.sync <user_id>                       # scp pull + sync
-    python3 -m parser.sync <user_id> --local <path.srm>    # local file instead of scp
+    python3 -m parser.sync <user_id> --local <path.srm>    # local file instead of scp (.srm or .sav)
     python3 -m parser.sync <user_id> --diff [--from N] [--to M]
     python3 -m parser.sync <user_id> --local <path.srm> --full   # uncompacted save
 
@@ -35,7 +35,7 @@ from pathlib import Path
 from typing import Any, Optional
 
 from . import __version__, diff as diff_module
-from .parse_save import parse as parse_save
+from .parse_save import SUPPORTED_GENERATIONS, parse as parse_save
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DEFAULT_USERS_DIR = PROJECT_ROOT / "users"
@@ -84,6 +84,11 @@ def _md5_file(path: Path) -> str:
         for chunk in iter(lambda: f.read(1 << 16), b""):
             h.update(chunk)
     return h.hexdigest()
+
+
+def _save_suffix(save_filename: Optional[str]) -> str:
+    """Archive/rejected copies keep the save's own extension (.srm, .sav)."""
+    return Path(save_filename or "").suffix or ".srm"
 
 
 def _make_tmp_path(saves_dir: Path) -> Path:
@@ -143,6 +148,10 @@ def _compact_box_mon(mon: dict) -> dict:
             "is_egg": mon.get("is_egg"),
         }
     )
+    # Gen 1 has no abilities or natures; drop the always-null keys.
+    for key in ("ability", "nature", "nature_effect"):
+        if compact[key] is None:
+            del compact[key]
     return compact
 
 
@@ -181,6 +190,27 @@ def _load_config(user_dir: Path) -> dict:
         raise SyncError(
             {"status": "error", "error": f"Invalid JSON in {config_path}: {exc}"}, 1
         ) from exc
+
+
+def _config_gen(config: dict) -> Optional[int]:
+    """The save generation from config.json ("gen"), or None to auto-detect.
+
+    Accepts an int or numeric string. An unsupported value is a config error.
+    """
+    gen = config.get("gen")
+    if gen is None:
+        return None
+    try:
+        gen = int(gen)
+    except (TypeError, ValueError):
+        raise SyncError({"status": "error", "error": f"config.json has an invalid gen: {gen!r}"}, 1)
+    if gen not in SUPPORTED_GENERATIONS:
+        supported = ", ".join(str(g) for g in SUPPORTED_GENERATIONS)
+        raise SyncError(
+            {"status": "error", "error": f"config.json gen {gen} is not supported (supported: {supported})"},
+            1,
+        )
+    return gen
 
 
 # ---------------------------------------------------------------------------
@@ -323,7 +353,7 @@ def _load_or_bootstrap_history(user_id: str, users_dir: Path, config: dict) -> d
                 current_md5 = None
             if current_md5 and current_md5 == last["md5"]:
                 try:
-                    parsed = parse_save(str(latest_path))
+                    parsed = parse_save(str(latest_path), gen=_config_gen(config))
                 except Exception as exc:  # noqa: BLE001 - best-effort bootstrap
                     print(
                         f"warning: could not parse existing save during bootstrap: {exc}",
@@ -336,7 +366,10 @@ def _load_or_bootstrap_history(user_id: str, users_dir: Path, config: dict) -> d
                     )
                     archive_dir = saves_dir / "archive"
                     archive_dir.mkdir(parents=True, exist_ok=True)
-                    archive_name = f"{sync_number:03d}_{last['date']}_{current_md5[:8]}.srm"
+                    archive_name = (
+                        f"{sync_number:03d}_{last['date']}_{current_md5[:8]}"
+                        f"{_save_suffix(config.get('save_filename'))}"
+                    )
                     archive_path = archive_dir / archive_name
                     if not archive_path.exists():
                         shutil.copyfile(latest_path, archive_path)
@@ -354,6 +387,7 @@ def _load_or_bootstrap_history(user_id: str, users_dir: Path, config: dict) -> d
 def do_sync(user_id: str, users_dir: Path, local_path: Optional[str] = None) -> dict:
     user_dir = users_dir / user_id
     config = _load_config(user_dir)
+    gen = _config_gen(config)
 
     saves_dir = user_dir / "saves"
     (saves_dir / "archive").mkdir(parents=True, exist_ok=True)
@@ -394,13 +428,13 @@ def do_sync(user_id: str, users_dir: Path, local_path: Optional[str] = None) -> 
         parsed: Optional[dict] = None
         valid = False
         try:
-            parsed = parse_save(str(tmp_path))
+            parsed = parse_save(str(tmp_path), gen=gen)
             valid = bool((parsed.get("save_metadata") or {}).get("checksum_valid", False))
         except Exception as exc:  # noqa: BLE001 - any parse failure -> invalid_save
             parse_error = str(exc)
 
         if parsed is None or not valid:
-            rejected_path = saves_dir / f"rejected_{md5[:8]}.srm"
+            rejected_path = saves_dir / f"rejected_{md5[:8]}{_save_suffix(save_filename)}"
             os.replace(tmp_path, rejected_path)
             tmp_path = None
             error_msg = parse_error or "save_metadata.checksum_valid is False"
@@ -416,7 +450,7 @@ def do_sync(user_id: str, users_dir: Path, local_path: Optional[str] = None) -> 
         os.replace(tmp_path, latest_path)
         tmp_path = None
 
-        archive_name = f"{sync_number:03d}_{date_str}_{md5[:8]}.srm"
+        archive_name = f"{sync_number:03d}_{date_str}_{md5[:8]}{_save_suffix(save_filename)}"
         shutil.copyfile(latest_path, saves_dir / "archive" / archive_name)
 
         snapshot_path = saves_dir / "snapshots" / f"{sync_number:03d}.json"
@@ -513,7 +547,7 @@ def _build_parser() -> argparse.ArgumentParser:
         "--version", action="version", version=f"parser.sync {__version__}"
     )
     p.add_argument("user_id", help="Telegram user id (matches users/<user_id>/)")
-    p.add_argument("--local", metavar="PATH", help="use a local .srm file instead of scp")
+    p.add_argument("--local", metavar="PATH", help="use a local save file (.srm/.sav) instead of scp")
     p.add_argument(
         "--diff", action="store_true", help="diff two stored snapshots instead of syncing"
     )

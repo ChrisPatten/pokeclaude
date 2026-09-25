@@ -1,0 +1,1272 @@
+{
+  "1": {
+    "name": "Rhydon",
+    "national_dex": 112,
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "growth_rate": "slow"
+  },
+  "2": {
+    "name": "Kangaskhan",
+    "national_dex": 115,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "3": {
+    "name": "Nidoran♂",
+    "national_dex": 32,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "4": {
+    "name": "Clefairy",
+    "national_dex": 35,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "fast"
+  },
+  "5": {
+    "name": "Spearow",
+    "national_dex": 21,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "6": {
+    "name": "Voltorb",
+    "national_dex": 100,
+    "types": [
+      "Electric"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "7": {
+    "name": "Nidoking",
+    "national_dex": 34,
+    "types": [
+      "Poison",
+      "Ground"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "8": {
+    "name": "Slowbro",
+    "national_dex": 80,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "9": {
+    "name": "Ivysaur",
+    "national_dex": 2,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "10": {
+    "name": "Exeggutor",
+    "national_dex": 103,
+    "types": [
+      "Grass",
+      "Psychic"
+    ],
+    "growth_rate": "slow"
+  },
+  "11": {
+    "name": "Lickitung",
+    "national_dex": 108,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "12": {
+    "name": "Exeggcute",
+    "national_dex": 102,
+    "types": [
+      "Grass",
+      "Psychic"
+    ],
+    "growth_rate": "slow"
+  },
+  "13": {
+    "name": "Grimer",
+    "national_dex": 88,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "14": {
+    "name": "Gengar",
+    "national_dex": 94,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "15": {
+    "name": "Nidoran♀",
+    "national_dex": 29,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "16": {
+    "name": "Nidoqueen",
+    "national_dex": 31,
+    "types": [
+      "Poison",
+      "Ground"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "17": {
+    "name": "Cubone",
+    "national_dex": 104,
+    "types": [
+      "Ground"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "18": {
+    "name": "Rhyhorn",
+    "national_dex": 111,
+    "types": [
+      "Ground",
+      "Rock"
+    ],
+    "growth_rate": "slow"
+  },
+  "19": {
+    "name": "Lapras",
+    "national_dex": 131,
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "growth_rate": "slow"
+  },
+  "20": {
+    "name": "Arcanine",
+    "national_dex": 59,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "slow"
+  },
+  "21": {
+    "name": "Mew",
+    "national_dex": 151,
+    "types": [
+      "Psychic"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "22": {
+    "name": "Gyarados",
+    "national_dex": 130,
+    "types": [
+      "Water",
+      "Flying"
+    ],
+    "growth_rate": "slow"
+  },
+  "23": {
+    "name": "Shellder",
+    "national_dex": 90,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "slow"
+  },
+  "24": {
+    "name": "Tentacool",
+    "national_dex": 72,
+    "types": [
+      "Water",
+      "Poison"
+    ],
+    "growth_rate": "slow"
+  },
+  "25": {
+    "name": "Gastly",
+    "national_dex": 92,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "26": {
+    "name": "Scyther",
+    "national_dex": 123,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "27": {
+    "name": "Staryu",
+    "national_dex": 120,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "slow"
+  },
+  "28": {
+    "name": "Blastoise",
+    "national_dex": 9,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "29": {
+    "name": "Pinsir",
+    "national_dex": 127,
+    "types": [
+      "Bug"
+    ],
+    "growth_rate": "slow"
+  },
+  "30": {
+    "name": "Tangela",
+    "national_dex": 114,
+    "types": [
+      "Grass"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "33": {
+    "name": "Growlithe",
+    "national_dex": 58,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "slow"
+  },
+  "34": {
+    "name": "Onix",
+    "national_dex": 95,
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "35": {
+    "name": "Fearow",
+    "national_dex": 22,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "36": {
+    "name": "Pidgey",
+    "national_dex": 16,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "37": {
+    "name": "Slowpoke",
+    "national_dex": 79,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "38": {
+    "name": "Kadabra",
+    "national_dex": 64,
+    "types": [
+      "Psychic"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "39": {
+    "name": "Graveler",
+    "national_dex": 75,
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "40": {
+    "name": "Chansey",
+    "national_dex": 113,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "fast"
+  },
+  "41": {
+    "name": "Machoke",
+    "national_dex": 67,
+    "types": [
+      "Fighting"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "42": {
+    "name": "Mr. Mime",
+    "national_dex": 122,
+    "types": [
+      "Psychic"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "43": {
+    "name": "Hitmonlee",
+    "national_dex": 106,
+    "types": [
+      "Fighting"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "44": {
+    "name": "Hitmonchan",
+    "national_dex": 107,
+    "types": [
+      "Fighting"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "45": {
+    "name": "Arbok",
+    "national_dex": 24,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "46": {
+    "name": "Parasect",
+    "national_dex": 47,
+    "types": [
+      "Bug",
+      "Grass"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "47": {
+    "name": "Psyduck",
+    "national_dex": 54,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "48": {
+    "name": "Drowzee",
+    "national_dex": 96,
+    "types": [
+      "Psychic"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "49": {
+    "name": "Golem",
+    "national_dex": 76,
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "51": {
+    "name": "Magmar",
+    "national_dex": 126,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "53": {
+    "name": "Electabuzz",
+    "national_dex": 125,
+    "types": [
+      "Electric"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "54": {
+    "name": "Magneton",
+    "national_dex": 82,
+    "types": [
+      "Electric"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "55": {
+    "name": "Koffing",
+    "national_dex": 109,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "57": {
+    "name": "Mankey",
+    "national_dex": 56,
+    "types": [
+      "Fighting"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "58": {
+    "name": "Seel",
+    "national_dex": 86,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "59": {
+    "name": "Diglett",
+    "national_dex": 50,
+    "types": [
+      "Ground"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "60": {
+    "name": "Tauros",
+    "national_dex": 128,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "slow"
+  },
+  "64": {
+    "name": "Farfetch'd",
+    "national_dex": 83,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "65": {
+    "name": "Venonat",
+    "national_dex": 48,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "66": {
+    "name": "Dragonite",
+    "national_dex": 149,
+    "types": [
+      "Dragon",
+      "Flying"
+    ],
+    "growth_rate": "slow"
+  },
+  "70": {
+    "name": "Doduo",
+    "national_dex": 84,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "71": {
+    "name": "Poliwag",
+    "national_dex": 60,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "72": {
+    "name": "Jynx",
+    "national_dex": 124,
+    "types": [
+      "Ice",
+      "Psychic"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "73": {
+    "name": "Moltres",
+    "national_dex": 146,
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "growth_rate": "slow"
+  },
+  "74": {
+    "name": "Articuno",
+    "national_dex": 144,
+    "types": [
+      "Ice",
+      "Flying"
+    ],
+    "growth_rate": "slow"
+  },
+  "75": {
+    "name": "Zapdos",
+    "national_dex": 145,
+    "types": [
+      "Electric",
+      "Flying"
+    ],
+    "growth_rate": "slow"
+  },
+  "76": {
+    "name": "Ditto",
+    "national_dex": 132,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "77": {
+    "name": "Meowth",
+    "national_dex": 52,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "78": {
+    "name": "Krabby",
+    "national_dex": 98,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "82": {
+    "name": "Vulpix",
+    "national_dex": 37,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "83": {
+    "name": "Ninetales",
+    "national_dex": 38,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "84": {
+    "name": "Pikachu",
+    "national_dex": 25,
+    "types": [
+      "Electric"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "85": {
+    "name": "Raichu",
+    "national_dex": 26,
+    "types": [
+      "Electric"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "88": {
+    "name": "Dratini",
+    "national_dex": 147,
+    "types": [
+      "Dragon"
+    ],
+    "growth_rate": "slow"
+  },
+  "89": {
+    "name": "Dragonair",
+    "national_dex": 148,
+    "types": [
+      "Dragon"
+    ],
+    "growth_rate": "slow"
+  },
+  "90": {
+    "name": "Kabuto",
+    "national_dex": 140,
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "91": {
+    "name": "Kabutops",
+    "national_dex": 141,
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "92": {
+    "name": "Horsea",
+    "national_dex": 116,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "93": {
+    "name": "Seadra",
+    "national_dex": 117,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "96": {
+    "name": "Sandshrew",
+    "national_dex": 27,
+    "types": [
+      "Ground"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "97": {
+    "name": "Sandslash",
+    "national_dex": 28,
+    "types": [
+      "Ground"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "98": {
+    "name": "Omanyte",
+    "national_dex": 138,
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "99": {
+    "name": "Omastar",
+    "national_dex": 139,
+    "types": [
+      "Rock",
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "100": {
+    "name": "Jigglypuff",
+    "national_dex": 39,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "fast"
+  },
+  "101": {
+    "name": "Wigglytuff",
+    "national_dex": 40,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "fast"
+  },
+  "102": {
+    "name": "Eevee",
+    "national_dex": 133,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "103": {
+    "name": "Flareon",
+    "national_dex": 136,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "104": {
+    "name": "Jolteon",
+    "national_dex": 135,
+    "types": [
+      "Electric"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "105": {
+    "name": "Vaporeon",
+    "national_dex": 134,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "106": {
+    "name": "Machop",
+    "national_dex": 66,
+    "types": [
+      "Fighting"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "107": {
+    "name": "Zubat",
+    "national_dex": 41,
+    "types": [
+      "Poison",
+      "Flying"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "108": {
+    "name": "Ekans",
+    "national_dex": 23,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "109": {
+    "name": "Paras",
+    "national_dex": 46,
+    "types": [
+      "Bug",
+      "Grass"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "110": {
+    "name": "Poliwhirl",
+    "national_dex": 61,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "111": {
+    "name": "Poliwrath",
+    "national_dex": 62,
+    "types": [
+      "Water",
+      "Fighting"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "112": {
+    "name": "Weedle",
+    "national_dex": 13,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "113": {
+    "name": "Kakuna",
+    "national_dex": 14,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "114": {
+    "name": "Beedrill",
+    "national_dex": 15,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "116": {
+    "name": "Dodrio",
+    "national_dex": 85,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "117": {
+    "name": "Primeape",
+    "national_dex": 57,
+    "types": [
+      "Fighting"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "118": {
+    "name": "Dugtrio",
+    "national_dex": 51,
+    "types": [
+      "Ground"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "119": {
+    "name": "Venomoth",
+    "national_dex": 49,
+    "types": [
+      "Bug",
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "120": {
+    "name": "Dewgong",
+    "national_dex": 87,
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "123": {
+    "name": "Caterpie",
+    "national_dex": 10,
+    "types": [
+      "Bug"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "124": {
+    "name": "Metapod",
+    "national_dex": 11,
+    "types": [
+      "Bug"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "125": {
+    "name": "Butterfree",
+    "national_dex": 12,
+    "types": [
+      "Bug",
+      "Flying"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "126": {
+    "name": "Machamp",
+    "national_dex": 68,
+    "types": [
+      "Fighting"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "128": {
+    "name": "Golduck",
+    "national_dex": 55,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "129": {
+    "name": "Hypno",
+    "national_dex": 97,
+    "types": [
+      "Psychic"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "130": {
+    "name": "Golbat",
+    "national_dex": 42,
+    "types": [
+      "Poison",
+      "Flying"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "131": {
+    "name": "Mewtwo",
+    "national_dex": 150,
+    "types": [
+      "Psychic"
+    ],
+    "growth_rate": "slow"
+  },
+  "132": {
+    "name": "Snorlax",
+    "national_dex": 143,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "slow"
+  },
+  "133": {
+    "name": "Magikarp",
+    "national_dex": 129,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "slow"
+  },
+  "136": {
+    "name": "Muk",
+    "national_dex": 89,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "138": {
+    "name": "Kingler",
+    "national_dex": 99,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "139": {
+    "name": "Cloyster",
+    "national_dex": 91,
+    "types": [
+      "Water",
+      "Ice"
+    ],
+    "growth_rate": "slow"
+  },
+  "141": {
+    "name": "Electrode",
+    "national_dex": 101,
+    "types": [
+      "Electric"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "142": {
+    "name": "Clefable",
+    "national_dex": 36,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "fast"
+  },
+  "143": {
+    "name": "Weezing",
+    "national_dex": 110,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "144": {
+    "name": "Persian",
+    "national_dex": 53,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "145": {
+    "name": "Marowak",
+    "national_dex": 105,
+    "types": [
+      "Ground"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "147": {
+    "name": "Haunter",
+    "national_dex": 93,
+    "types": [
+      "Ghost",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "148": {
+    "name": "Abra",
+    "national_dex": 63,
+    "types": [
+      "Psychic"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "149": {
+    "name": "Alakazam",
+    "national_dex": 65,
+    "types": [
+      "Psychic"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "150": {
+    "name": "Pidgeotto",
+    "national_dex": 17,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "151": {
+    "name": "Pidgeot",
+    "national_dex": 18,
+    "types": [
+      "Normal",
+      "Flying"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "152": {
+    "name": "Starmie",
+    "national_dex": 121,
+    "types": [
+      "Water",
+      "Psychic"
+    ],
+    "growth_rate": "slow"
+  },
+  "153": {
+    "name": "Bulbasaur",
+    "national_dex": 1,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "154": {
+    "name": "Venusaur",
+    "national_dex": 3,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "155": {
+    "name": "Tentacruel",
+    "national_dex": 73,
+    "types": [
+      "Water",
+      "Poison"
+    ],
+    "growth_rate": "slow"
+  },
+  "157": {
+    "name": "Goldeen",
+    "national_dex": 118,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "158": {
+    "name": "Seaking",
+    "national_dex": 119,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "163": {
+    "name": "Ponyta",
+    "national_dex": 77,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "164": {
+    "name": "Rapidash",
+    "national_dex": 78,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "165": {
+    "name": "Rattata",
+    "national_dex": 19,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "166": {
+    "name": "Raticate",
+    "national_dex": 20,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "167": {
+    "name": "Nidorino",
+    "national_dex": 33,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "168": {
+    "name": "Nidorina",
+    "national_dex": 30,
+    "types": [
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "169": {
+    "name": "Geodude",
+    "national_dex": 74,
+    "types": [
+      "Rock",
+      "Ground"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "170": {
+    "name": "Porygon",
+    "national_dex": 137,
+    "types": [
+      "Normal"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "171": {
+    "name": "Aerodactyl",
+    "national_dex": 142,
+    "types": [
+      "Rock",
+      "Flying"
+    ],
+    "growth_rate": "slow"
+  },
+  "173": {
+    "name": "Magnemite",
+    "national_dex": 81,
+    "types": [
+      "Electric"
+    ],
+    "growth_rate": "medium_fast"
+  },
+  "176": {
+    "name": "Charmander",
+    "national_dex": 4,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "177": {
+    "name": "Squirtle",
+    "national_dex": 7,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "178": {
+    "name": "Charmeleon",
+    "national_dex": 5,
+    "types": [
+      "Fire"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "179": {
+    "name": "Wartortle",
+    "national_dex": 8,
+    "types": [
+      "Water"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "180": {
+    "name": "Charizard",
+    "national_dex": 6,
+    "types": [
+      "Fire",
+      "Flying"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "185": {
+    "name": "Oddish",
+    "national_dex": 43,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "186": {
+    "name": "Gloom",
+    "national_dex": 44,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "187": {
+    "name": "Vileplume",
+    "national_dex": 45,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "188": {
+    "name": "Bellsprout",
+    "national_dex": 69,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "189": {
+    "name": "Weepinbell",
+    "national_dex": 70,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  },
+  "190": {
+    "name": "Victreebel",
+    "national_dex": 71,
+    "types": [
+      "Grass",
+      "Poison"
+    ],
+    "growth_rate": "medium_slow"
+  }
+}

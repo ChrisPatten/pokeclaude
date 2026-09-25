@@ -1,0 +1,994 @@
+[
+  {
+    "map_id": 0,
+    "name": "Pallet Town"
+  },
+  {
+    "map_id": 1,
+    "name": "Viridian City"
+  },
+  {
+    "map_id": 2,
+    "name": "Pewter City"
+  },
+  {
+    "map_id": 3,
+    "name": "Cerulean City"
+  },
+  {
+    "map_id": 4,
+    "name": "Lavender Town"
+  },
+  {
+    "map_id": 5,
+    "name": "Vermilion City"
+  },
+  {
+    "map_id": 6,
+    "name": "Celadon City"
+  },
+  {
+    "map_id": 7,
+    "name": "Fuchsia City"
+  },
+  {
+    "map_id": 8,
+    "name": "Cinnabar Island"
+  },
+  {
+    "map_id": 9,
+    "name": "Indigo Plateau"
+  },
+  {
+    "map_id": 10,
+    "name": "Saffron City"
+  },
+  {
+    "map_id": 11,
+    "name": "Unused Map 0B"
+  },
+  {
+    "map_id": 12,
+    "name": "Route 1"
+  },
+  {
+    "map_id": 13,
+    "name": "Route 2"
+  },
+  {
+    "map_id": 14,
+    "name": "Route 3"
+  },
+  {
+    "map_id": 15,
+    "name": "Route 4"
+  },
+  {
+    "map_id": 16,
+    "name": "Route 5"
+  },
+  {
+    "map_id": 17,
+    "name": "Route 6"
+  },
+  {
+    "map_id": 18,
+    "name": "Route 7"
+  },
+  {
+    "map_id": 19,
+    "name": "Route 8"
+  },
+  {
+    "map_id": 20,
+    "name": "Route 9"
+  },
+  {
+    "map_id": 21,
+    "name": "Route 10"
+  },
+  {
+    "map_id": 22,
+    "name": "Route 11"
+  },
+  {
+    "map_id": 23,
+    "name": "Route 12"
+  },
+  {
+    "map_id": 24,
+    "name": "Route 13"
+  },
+  {
+    "map_id": 25,
+    "name": "Route 14"
+  },
+  {
+    "map_id": 26,
+    "name": "Route 15"
+  },
+  {
+    "map_id": 27,
+    "name": "Route 16"
+  },
+  {
+    "map_id": 28,
+    "name": "Route 17"
+  },
+  {
+    "map_id": 29,
+    "name": "Route 18"
+  },
+  {
+    "map_id": 30,
+    "name": "Route 19"
+  },
+  {
+    "map_id": 31,
+    "name": "Route 20"
+  },
+  {
+    "map_id": 32,
+    "name": "Route 21"
+  },
+  {
+    "map_id": 33,
+    "name": "Route 22"
+  },
+  {
+    "map_id": 34,
+    "name": "Route 23"
+  },
+  {
+    "map_id": 35,
+    "name": "Route 24"
+  },
+  {
+    "map_id": 36,
+    "name": "Route 25"
+  },
+  {
+    "map_id": 37,
+    "name": "Red's House 1F"
+  },
+  {
+    "map_id": 38,
+    "name": "Red's House 2F"
+  },
+  {
+    "map_id": 39,
+    "name": "Blue's House"
+  },
+  {
+    "map_id": 40,
+    "name": "Oak's Lab"
+  },
+  {
+    "map_id": 41,
+    "name": "Viridian Pokémon Center"
+  },
+  {
+    "map_id": 42,
+    "name": "Viridian Poké Mart"
+  },
+  {
+    "map_id": 43,
+    "name": "Viridian School House"
+  },
+  {
+    "map_id": 44,
+    "name": "Viridian Nickname House"
+  },
+  {
+    "map_id": 45,
+    "name": "Viridian Gym"
+  },
+  {
+    "map_id": 46,
+    "name": "Diglett's Cave Route 2"
+  },
+  {
+    "map_id": 47,
+    "name": "Viridian Forest North Gate"
+  },
+  {
+    "map_id": 48,
+    "name": "Route 2 Trade House"
+  },
+  {
+    "map_id": 49,
+    "name": "Route 2 Gate"
+  },
+  {
+    "map_id": 50,
+    "name": "Viridian Forest South Gate"
+  },
+  {
+    "map_id": 51,
+    "name": "Viridian Forest"
+  },
+  {
+    "map_id": 52,
+    "name": "Pewter Museum 1F"
+  },
+  {
+    "map_id": 53,
+    "name": "Pewter Museum 2F"
+  },
+  {
+    "map_id": 54,
+    "name": "Pewter Gym"
+  },
+  {
+    "map_id": 55,
+    "name": "Pewter Nidoran House"
+  },
+  {
+    "map_id": 56,
+    "name": "Pewter Poké Mart"
+  },
+  {
+    "map_id": 57,
+    "name": "Pewter Speech House"
+  },
+  {
+    "map_id": 58,
+    "name": "Pewter Pokémon Center"
+  },
+  {
+    "map_id": 59,
+    "name": "Mt. Moon 1F"
+  },
+  {
+    "map_id": 60,
+    "name": "Mt. Moon B1F"
+  },
+  {
+    "map_id": 61,
+    "name": "Mt. Moon B2F"
+  },
+  {
+    "map_id": 62,
+    "name": "Cerulean Trashed House"
+  },
+  {
+    "map_id": 63,
+    "name": "Cerulean Trade House"
+  },
+  {
+    "map_id": 64,
+    "name": "Cerulean Pokémon Center"
+  },
+  {
+    "map_id": 65,
+    "name": "Cerulean Gym"
+  },
+  {
+    "map_id": 66,
+    "name": "Cerulean Bike Shop"
+  },
+  {
+    "map_id": 67,
+    "name": "Cerulean Poké Mart"
+  },
+  {
+    "map_id": 68,
+    "name": "Mt. Moon Pokémon Center (Route 4)"
+  },
+  {
+    "map_id": 69,
+    "name": "Cerulean Trashed House (duplicate)"
+  },
+  {
+    "map_id": 70,
+    "name": "Route 5 Gate"
+  },
+  {
+    "map_id": 71,
+    "name": "Underground Path Entrance (Route 5)"
+  },
+  {
+    "map_id": 72,
+    "name": "Route 5 Day Care"
+  },
+  {
+    "map_id": 73,
+    "name": "Route 6 Gate"
+  },
+  {
+    "map_id": 74,
+    "name": "Underground Path Entrance (Route 6)"
+  },
+  {
+    "map_id": 75,
+    "name": "Underground Path Route 6 (duplicate)"
+  },
+  {
+    "map_id": 76,
+    "name": "Route 7 Gate"
+  },
+  {
+    "map_id": 77,
+    "name": "Underground Path Entrance (Route 7)"
+  },
+  {
+    "map_id": 78,
+    "name": "Underground Path Route 7 (duplicate)"
+  },
+  {
+    "map_id": 79,
+    "name": "Route 8 Gate"
+  },
+  {
+    "map_id": 80,
+    "name": "Underground Path Entrance (Route 8)"
+  },
+  {
+    "map_id": 81,
+    "name": "Rock Tunnel Pokémon Center"
+  },
+  {
+    "map_id": 82,
+    "name": "Rock Tunnel 1F"
+  },
+  {
+    "map_id": 83,
+    "name": "Power Plant"
+  },
+  {
+    "map_id": 84,
+    "name": "Route 11 Gate 1F"
+  },
+  {
+    "map_id": 85,
+    "name": "Diglett's Cave Route 11"
+  },
+  {
+    "map_id": 86,
+    "name": "Route 11 Gate 2F"
+  },
+  {
+    "map_id": 87,
+    "name": "Route 12 Gate 1F"
+  },
+  {
+    "map_id": 88,
+    "name": "Bill's House (Route 25)"
+  },
+  {
+    "map_id": 89,
+    "name": "Vermilion Pokémon Center"
+  },
+  {
+    "map_id": 90,
+    "name": "Vermilion Pokémon Fan Club"
+  },
+  {
+    "map_id": 91,
+    "name": "Vermilion Poké Mart"
+  },
+  {
+    "map_id": 92,
+    "name": "Vermilion Gym"
+  },
+  {
+    "map_id": 93,
+    "name": "Vermilion Pidgey House"
+  },
+  {
+    "map_id": 94,
+    "name": "Vermilion Dock"
+  },
+  {
+    "map_id": 95,
+    "name": "S.S. Anne 1F"
+  },
+  {
+    "map_id": 96,
+    "name": "S.S. Anne 2F"
+  },
+  {
+    "map_id": 97,
+    "name": "S.S. Anne 3F"
+  },
+  {
+    "map_id": 98,
+    "name": "S.S. Anne B1F"
+  },
+  {
+    "map_id": 99,
+    "name": "S.S. Anne Bow"
+  },
+  {
+    "map_id": 100,
+    "name": "S.S. Anne Kitchen"
+  },
+  {
+    "map_id": 101,
+    "name": "S.S. Anne Captain's Room"
+  },
+  {
+    "map_id": 102,
+    "name": "S.S. Anne 1F Rooms"
+  },
+  {
+    "map_id": 103,
+    "name": "S.S. Anne 2F Rooms"
+  },
+  {
+    "map_id": 104,
+    "name": "S.S. Anne B1F Rooms"
+  },
+  {
+    "map_id": 105,
+    "name": "Unused Map 69"
+  },
+  {
+    "map_id": 106,
+    "name": "Unused Map 6A"
+  },
+  {
+    "map_id": 107,
+    "name": "Unused Map 6B"
+  },
+  {
+    "map_id": 108,
+    "name": "Victory Road 1F"
+  },
+  {
+    "map_id": 109,
+    "name": "Unused Map 6D"
+  },
+  {
+    "map_id": 110,
+    "name": "Unused Map 6E"
+  },
+  {
+    "map_id": 111,
+    "name": "Unused Map 6F"
+  },
+  {
+    "map_id": 112,
+    "name": "Unused Map 70"
+  },
+  {
+    "map_id": 113,
+    "name": "Lance's Room"
+  },
+  {
+    "map_id": 114,
+    "name": "Unused Map 72"
+  },
+  {
+    "map_id": 115,
+    "name": "Unused Map 73"
+  },
+  {
+    "map_id": 116,
+    "name": "Unused Map 74"
+  },
+  {
+    "map_id": 117,
+    "name": "Unused Map 75"
+  },
+  {
+    "map_id": 118,
+    "name": "Hall of Fame"
+  },
+  {
+    "map_id": 119,
+    "name": "Underground Path (Routes 5-6)"
+  },
+  {
+    "map_id": 120,
+    "name": "Champion's Room"
+  },
+  {
+    "map_id": 121,
+    "name": "Underground Path (Routes 7-8)"
+  },
+  {
+    "map_id": 122,
+    "name": "Celadon Dept. Store 1F"
+  },
+  {
+    "map_id": 123,
+    "name": "Celadon Dept. Store 2F"
+  },
+  {
+    "map_id": 124,
+    "name": "Celadon Dept. Store 3F"
+  },
+  {
+    "map_id": 125,
+    "name": "Celadon Dept. Store 4F"
+  },
+  {
+    "map_id": 126,
+    "name": "Celadon Dept. Store Roof"
+  },
+  {
+    "map_id": 127,
+    "name": "Celadon Dept. Store Elevator"
+  },
+  {
+    "map_id": 128,
+    "name": "Celadon Mansion 1F"
+  },
+  {
+    "map_id": 129,
+    "name": "Celadon Mansion 2F"
+  },
+  {
+    "map_id": 130,
+    "name": "Celadon Mansion 3F"
+  },
+  {
+    "map_id": 131,
+    "name": "Celadon Mansion Roof"
+  },
+  {
+    "map_id": 132,
+    "name": "Celadon Mansion Roof House"
+  },
+  {
+    "map_id": 133,
+    "name": "Celadon Pokémon Center"
+  },
+  {
+    "map_id": 134,
+    "name": "Celadon Gym"
+  },
+  {
+    "map_id": 135,
+    "name": "Celadon Game Corner"
+  },
+  {
+    "map_id": 136,
+    "name": "Celadon Dept. Store 5F"
+  },
+  {
+    "map_id": 137,
+    "name": "Celadon Game Corner Prize Room"
+  },
+  {
+    "map_id": 138,
+    "name": "Celadon Diner"
+  },
+  {
+    "map_id": 139,
+    "name": "Celadon Chief House"
+  },
+  {
+    "map_id": 140,
+    "name": "Celadon Hotel"
+  },
+  {
+    "map_id": 141,
+    "name": "Lavender Pokémon Center"
+  },
+  {
+    "map_id": 142,
+    "name": "Pokémon Tower 1F"
+  },
+  {
+    "map_id": 143,
+    "name": "Pokémon Tower 2F"
+  },
+  {
+    "map_id": 144,
+    "name": "Pokémon Tower 3F"
+  },
+  {
+    "map_id": 145,
+    "name": "Pokémon Tower 4F"
+  },
+  {
+    "map_id": 146,
+    "name": "Pokémon Tower 5F"
+  },
+  {
+    "map_id": 147,
+    "name": "Pokémon Tower 6F"
+  },
+  {
+    "map_id": 148,
+    "name": "Pokémon Tower 7F"
+  },
+  {
+    "map_id": 149,
+    "name": "Lavender Mr. Fuji's House"
+  },
+  {
+    "map_id": 150,
+    "name": "Lavender Poké Mart"
+  },
+  {
+    "map_id": 151,
+    "name": "Lavender Cubone House"
+  },
+  {
+    "map_id": 152,
+    "name": "Fuchsia Poké Mart"
+  },
+  {
+    "map_id": 153,
+    "name": "Fuchsia Bill's Grandpa's House"
+  },
+  {
+    "map_id": 154,
+    "name": "Fuchsia Pokémon Center"
+  },
+  {
+    "map_id": 155,
+    "name": "Fuchsia Warden's House"
+  },
+  {
+    "map_id": 156,
+    "name": "Safari Zone Gate"
+  },
+  {
+    "map_id": 157,
+    "name": "Fuchsia Gym"
+  },
+  {
+    "map_id": 158,
+    "name": "Fuchsia Meeting Room"
+  },
+  {
+    "map_id": 159,
+    "name": "Seafoam Islands B1F"
+  },
+  {
+    "map_id": 160,
+    "name": "Seafoam Islands B2F"
+  },
+  {
+    "map_id": 161,
+    "name": "Seafoam Islands B3F"
+  },
+  {
+    "map_id": 162,
+    "name": "Seafoam Islands B4F"
+  },
+  {
+    "map_id": 163,
+    "name": "Vermilion Old Rod House"
+  },
+  {
+    "map_id": 164,
+    "name": "Fuchsia Good Rod House"
+  },
+  {
+    "map_id": 165,
+    "name": "Pokémon Mansion 1F"
+  },
+  {
+    "map_id": 166,
+    "name": "Cinnabar Gym"
+  },
+  {
+    "map_id": 167,
+    "name": "Cinnabar Lab"
+  },
+  {
+    "map_id": 168,
+    "name": "Cinnabar Lab Trade Room"
+  },
+  {
+    "map_id": 169,
+    "name": "Cinnabar Lab Metronome Room"
+  },
+  {
+    "map_id": 170,
+    "name": "Cinnabar Lab Fossil Room"
+  },
+  {
+    "map_id": 171,
+    "name": "Cinnabar Pokémon Center"
+  },
+  {
+    "map_id": 172,
+    "name": "Cinnabar Poké Mart"
+  },
+  {
+    "map_id": 173,
+    "name": "Cinnabar Poké Mart (duplicate)"
+  },
+  {
+    "map_id": 174,
+    "name": "Indigo Plateau Lobby"
+  },
+  {
+    "map_id": 175,
+    "name": "Saffron Copycat's House 1F"
+  },
+  {
+    "map_id": 176,
+    "name": "Saffron Copycat's House 2F"
+  },
+  {
+    "map_id": 177,
+    "name": "Saffron Fighting Dojo"
+  },
+  {
+    "map_id": 178,
+    "name": "Saffron Gym"
+  },
+  {
+    "map_id": 179,
+    "name": "Saffron Pidgey House"
+  },
+  {
+    "map_id": 180,
+    "name": "Saffron Poké Mart"
+  },
+  {
+    "map_id": 181,
+    "name": "Silph Co. 1F"
+  },
+  {
+    "map_id": 182,
+    "name": "Saffron Pokémon Center"
+  },
+  {
+    "map_id": 183,
+    "name": "Saffron Mr. Psychic's House"
+  },
+  {
+    "map_id": 184,
+    "name": "Route 15 Gate 1F"
+  },
+  {
+    "map_id": 185,
+    "name": "Route 15 Gate 2F"
+  },
+  {
+    "map_id": 186,
+    "name": "Route 16 Gate 1F"
+  },
+  {
+    "map_id": 187,
+    "name": "Route 16 Gate 2F"
+  },
+  {
+    "map_id": 188,
+    "name": "Route 16 Fly House"
+  },
+  {
+    "map_id": 189,
+    "name": "Route 12 Super Rod House"
+  },
+  {
+    "map_id": 190,
+    "name": "Route 18 Gate 1F"
+  },
+  {
+    "map_id": 191,
+    "name": "Route 18 Gate 2F"
+  },
+  {
+    "map_id": 192,
+    "name": "Seafoam Islands 1F"
+  },
+  {
+    "map_id": 193,
+    "name": "Route 22 Gate"
+  },
+  {
+    "map_id": 194,
+    "name": "Victory Road 2F"
+  },
+  {
+    "map_id": 195,
+    "name": "Route 12 Gate 2F"
+  },
+  {
+    "map_id": 196,
+    "name": "Vermilion Trade House"
+  },
+  {
+    "map_id": 197,
+    "name": "Diglett's Cave"
+  },
+  {
+    "map_id": 198,
+    "name": "Victory Road 3F"
+  },
+  {
+    "map_id": 199,
+    "name": "Rocket Hideout B1F"
+  },
+  {
+    "map_id": 200,
+    "name": "Rocket Hideout B2F"
+  },
+  {
+    "map_id": 201,
+    "name": "Rocket Hideout B3F"
+  },
+  {
+    "map_id": 202,
+    "name": "Rocket Hideout B4F"
+  },
+  {
+    "map_id": 203,
+    "name": "Rocket Hideout Elevator"
+  },
+  {
+    "map_id": 204,
+    "name": "Unused Map CC"
+  },
+  {
+    "map_id": 205,
+    "name": "Unused Map CD"
+  },
+  {
+    "map_id": 206,
+    "name": "Unused Map CE"
+  },
+  {
+    "map_id": 207,
+    "name": "Silph Co. 2F"
+  },
+  {
+    "map_id": 208,
+    "name": "Silph Co. 3F"
+  },
+  {
+    "map_id": 209,
+    "name": "Silph Co. 4F"
+  },
+  {
+    "map_id": 210,
+    "name": "Silph Co. 5F"
+  },
+  {
+    "map_id": 211,
+    "name": "Silph Co. 6F"
+  },
+  {
+    "map_id": 212,
+    "name": "Silph Co. 7F"
+  },
+  {
+    "map_id": 213,
+    "name": "Silph Co. 8F"
+  },
+  {
+    "map_id": 214,
+    "name": "Pokémon Mansion 2F"
+  },
+  {
+    "map_id": 215,
+    "name": "Pokémon Mansion 3F"
+  },
+  {
+    "map_id": 216,
+    "name": "Pokémon Mansion B1F"
+  },
+  {
+    "map_id": 217,
+    "name": "Safari Zone East"
+  },
+  {
+    "map_id": 218,
+    "name": "Safari Zone North"
+  },
+  {
+    "map_id": 219,
+    "name": "Safari Zone West"
+  },
+  {
+    "map_id": 220,
+    "name": "Safari Zone Center"
+  },
+  {
+    "map_id": 221,
+    "name": "Safari Zone Center Rest House"
+  },
+  {
+    "map_id": 222,
+    "name": "Safari Zone Secret House"
+  },
+  {
+    "map_id": 223,
+    "name": "Safari Zone West Rest House"
+  },
+  {
+    "map_id": 224,
+    "name": "Safari Zone East Rest House"
+  },
+  {
+    "map_id": 225,
+    "name": "Safari Zone North Rest House"
+  },
+  {
+    "map_id": 226,
+    "name": "Cerulean Cave 2F"
+  },
+  {
+    "map_id": 227,
+    "name": "Cerulean Cave B1F"
+  },
+  {
+    "map_id": 228,
+    "name": "Cerulean Cave 1F"
+  },
+  {
+    "map_id": 229,
+    "name": "Lavender Name Rater's House"
+  },
+  {
+    "map_id": 230,
+    "name": "Cerulean Badge House"
+  },
+  {
+    "map_id": 231,
+    "name": "Unused Map E7"
+  },
+  {
+    "map_id": 232,
+    "name": "Rock Tunnel B1F"
+  },
+  {
+    "map_id": 233,
+    "name": "Silph Co. 9F"
+  },
+  {
+    "map_id": 234,
+    "name": "Silph Co. 10F"
+  },
+  {
+    "map_id": 235,
+    "name": "Silph Co. 11F"
+  },
+  {
+    "map_id": 236,
+    "name": "Silph Co. Elevator"
+  },
+  {
+    "map_id": 237,
+    "name": "Unused Map ED"
+  },
+  {
+    "map_id": 238,
+    "name": "Unused Map EE"
+  },
+  {
+    "map_id": 239,
+    "name": "Cable Club Trade Center"
+  },
+  {
+    "map_id": 240,
+    "name": "Cable Club Colosseum"
+  },
+  {
+    "map_id": 241,
+    "name": "Unused Map F1"
+  },
+  {
+    "map_id": 242,
+    "name": "Unused Map F2"
+  },
+  {
+    "map_id": 243,
+    "name": "Unused Map F3"
+  },
+  {
+    "map_id": 244,
+    "name": "Unused Map F4"
+  },
+  {
+    "map_id": 245,
+    "name": "Lorelei's Room"
+  },
+  {
+    "map_id": 246,
+    "name": "Bruno's Room"
+  },
+  {
+    "map_id": 247,
+    "name": "Agatha's Room"
+  }
+]

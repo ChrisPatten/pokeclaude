@@ -1,4 +1,4 @@
-"""Cached loaders for static Generation III reference data.
+"""Cached loaders for static reference data (Generation III and Generation I).
 
 All parser modules should load species/move/nature/item/location/growth-rate
 tables through this module instead of reading parser/data/*.json themselves,
@@ -69,3 +69,31 @@ def load_growth_rates() -> dict[str, str]:
     """Internal Gen 3 species id (str) -> growth rate key (medium_fast, erratic, ...)."""
     data = _load_json("growth_rates.json")
     return {k: v for k, v in data.items() if k != "comment"}
+
+
+# ---------------------------------------------------------------------------
+# Generation I (Red/Blue) — parser/data/gen1/, built by scripts/build_gen1_data.py
+# ---------------------------------------------------------------------------
+
+@lru_cache(maxsize=1)
+def load_gen1_species() -> dict[str, dict]:
+    """Internal Gen 1 species index (str) -> {"name", "national_dex", "types", "growth_rate"}."""
+    return _load_json("gen1/species.json")
+
+
+@lru_cache(maxsize=1)
+def load_gen1_moves() -> dict[str, dict]:
+    """Move id (str) -> {"name", "type", "pp", "power", "accuracy"} with Gen 1 values."""
+    return _load_json("gen1/moves.json")
+
+
+@lru_cache(maxsize=1)
+def load_gen1_items() -> dict[str, str]:
+    """Gen 1 item id (str) -> display name ("TM01"/"HM01" for machines)."""
+    return _load_json("gen1/items.json")
+
+
+@lru_cache(maxsize=1)
+def load_gen1_location_index() -> dict[int, str]:
+    """Gen 1 map id -> location name."""
+    return {loc["map_id"]: loc["name"] for loc in _load_json("gen1/locations.json")}
