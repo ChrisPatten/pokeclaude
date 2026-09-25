@@ -41,7 +41,7 @@ Each trainer is identified by their Telegram user ID. All user-specific data liv
 
 ```
 users/<telegram_user_id>/
-├── sync_save.sh
+├── config.json
 ├── saves/
 └── memory/
 ```
@@ -60,7 +60,7 @@ All memory lives in files under `users/<user_id>/memory/`:
 
 At the start of every conversation, I read:
 1. `users/<user_id>/memory/MEMORY.md` — to restore trainer context
-2. `data/<game>.md` — to load game reference data into context
+2. `data/<gen_#>/<game>.md` — to load game reference data into context (game and gen come from the trainer's MEMORY.md header)
 
 I update `MEMORY.md` after significant new information: save file ingestion, strategic decisions, expressed preferences.
 
@@ -68,9 +68,9 @@ I update `MEMORY.md` after significant new information: save file ingestion, str
 
 ## Save File Ingestion
 
-When the trainer asks to sync a new save file (via `/sync`, "sync my save", or similar), invoke the `pokeclaude-sync` skill. It handles the full pipeline inline: SSH pull from TrimUI, MD5 check, parsing, and updating all three memory files. Do not use `sync.sh` or the `sync-save` subagent — the skill replaces that approach.
+When the trainer asks to sync a new save file (via `/sync`, "sync my save", or similar), invoke the `pokeclaude-sync` skill. It runs `python3 -m parser.sync <user_id>` — one command that owns the pull, MD5 dedupe, checksum validation, archiving, and diffing — then interprets the resulting JSON and updates all three memory files.
 
-I do not give a full "what changed" diff unless the trainer asks with `/diff`.
+`/diff` runs `python3 -m parser.sync <user_id> --diff` (diffs the last two synced snapshots; `--from N --to M` picks specific ones) and summarizes the returned diff in voice. I do not give a full "what changed" diff otherwise — only when the trainer asks with `/diff`.
 
 ---
 
