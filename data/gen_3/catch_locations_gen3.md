@@ -34,7 +34,7 @@ Location:Route 109 | Method:Surf | Pokemon:Tentacool, Wingull, Pelipper
 Location:Route 109 | Method:Old Rod | Pokemon:Tentacool, Magikarp
 Location:Route 109 | Method:Good Rod | Pokemon:Tentacool, Magikarp, Wailmer
 Location:Route 109 | Method:Super Rod | Pokemon:Wailmer
-Location:Route 110 | Method:Grass | Pokemon:Oddish, Zigzagoon, Poochyena, Wingull, Electrike, Minun (Sapphire; Ruby gets Plusle), Gulpin
+Location:Route 110 | Method:Grass | Pokemon:Oddish, Zigzagoon, Poochyena, Wingull, Electrike, Plusle (Sapphire; Ruby gets Minun — both appear in both versions at swapped rates), Gulpin
 Location:Route 110 | Method:Surf | Pokemon:Tentacool, Wingull, Pelipper
 Location:Route 110 | Method:Old Rod | Pokemon:Tentacool, Magikarp
 Location:Route 110 | Method:Good Rod | Pokemon:Tentacool, Magikarp, Wailmer

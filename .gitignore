@@ -4,7 +4,7 @@ users/
 # Local Claude settings
 .claude/*
 !.claude/settings.json
-!.claude/agents
+!.claude/skills/
 
 # Environment
 .envrc
@@ -17,6 +17,7 @@ __pycache__/
 *.pyd
 .Python
 *.egg-info/
+.eggs/
 dist/
 build/
 .venv/
@@ -27,6 +28,9 @@ venv/
 .AppleDouble
 .LSOverride
 
+# Windows
+Thumbs.db
+
 # Editor
 .idea/
 .vscode/
@@ -36,3 +40,13 @@ venv/
 
 # Local dev data
 data/pokeapi/
+
+# Save files / test fixtures
+*.srm
+tests/fixtures/
+
+# Machine-specific MCP config (absolute paths) — see .mcp.json.example
+.mcp.json
+
+# Local script cache (regenerated from pret/pokeruby decompilation headers)
+scripts/cache/

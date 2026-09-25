@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "agentbus": {
+      "command": "npx",
+      "args": ["tsx", "/path/to/agentbus/src/adapters/cc.ts"],
+      "env": {
+        "AGENTBUS_CONFIG": "/path/to/agentbus/config.yaml",
+        "AGENTBUS_AGENT_ID": "pokeclaude"
+      }
+    }
+  }
+}

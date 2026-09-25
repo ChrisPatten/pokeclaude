@@ -1,0 +1,10 @@
+{
+  "game": "sapphire",
+  "gen": 3,
+  "save_filename": "sapphire.srm",
+  "device": {
+    "host": "user@192.168.1.100",
+    "save_path": "/path/to/device/saves/Pokemon - Sapphire Version (USA, Europe) (Rev 2).srm",
+    "ssh_key": "trimui_key"
+  }
+}

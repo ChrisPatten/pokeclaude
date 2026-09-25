@@ -146,7 +146,9 @@ Reduce to 1 HP with False Swipe. Apply Sleep or Paralysis. Throw Ultra Balls or 
 
 ## Wild Encounters (Pokémon Sapphire)
 
-Version exclusives relevant to Sapphire: Lotad/Lombre/Ludicolo, Seviper, Lunatone, Sableye, Illumise, Minun — all catchable in Sapphire. Ruby exclusives NOT in Sapphire wild: Seedot/Nuzleaf/Shiftry, Zangoose, Solrock, Mawile, Volbeat, Plusle.
+True version exclusives in Sapphire (species absent from Ruby wild entirely): Lotad/Lombre/Ludicolo, Seviper, Lunatone, Sableye. True Ruby-only equivalents (absent from Sapphire wild): Seedot/Nuzleaf/Shiftry, Zangoose, Solrock, Mawile.
+
+Volbeat/Illumise and Plusle/Minun are NOT exclusives — both species in each pair appear in both versions, just at swapped encounter rates. Route 117: Volbeat common in Sapphire (~18-20%), rare in Ruby (~1-4%); Illumise common in Ruby, rare in Sapphire (inverse). Route 110: Plusle common in Sapphire (~15-16%), rare in Ruby (~2%); Minun common in Ruby, rare in Sapphire (inverse).
 
 Note: Seedot does appear on Route 102/117/120 as a swarm-only (requires record mixing with Emerald). Surskit is available in Sapphire on Routes 102, 111, 114, 117, 120.
 
