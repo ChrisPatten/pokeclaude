@@ -179,7 +179,7 @@ Joins `data/gen_3/pokedex_gen3.md` (keyed by National Dex number, owned by the g
 python3 -m unittest discover -s tests -v
 ```
 
-`tests/test_parser_synthetic.py` and `tests/test_diff.py`/`tests/test_sync.py` run against hand-built fixtures and mocks — no real save file needed. `tests/test_gen1_parser.py` runs against the committed game-written Red save in `tests/data/` plus mutated copies of it. `tests/test_parser_golden.py` additionally checks a real save (`tests/fixtures/sapphire.srm`) against a checked-in expected output (`tests/fixtures/sapphire.golden.json`); both are gitignored, and the golden test skips itself when they're missing. Regenerate the golden file after an intentional parser change:
+`tests/test_parser_synthetic.py` and `tests/test_diff.py`/`tests/test_sync.py` run against hand-built fixtures and mocks — no real save file needed. `tests/test_gen1_parser.py` runs against the committed Red saves in `tests/data/` (one game-written with injected data, one from a real playthrough) plus mutated copies. `tests/test_parser_golden.py` additionally checks a real save (`tests/fixtures/sapphire.srm`) against a checked-in expected output (`tests/fixtures/sapphire.golden.json`); both are gitignored, and the golden test skips itself when they're missing. Regenerate the golden file after an intentional parser change:
 
 ```bash
 UPDATE_GOLDEN=1 python3 -m unittest tests.test_parser_golden

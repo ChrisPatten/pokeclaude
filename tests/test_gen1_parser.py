@@ -1,8 +1,9 @@
 """Tests for the Generation I (Red/Blue) save parser.
 
 tests/data/gen1_red_ingame.sav was written by Pokémon Red's own save routine
-(scripts/make_gen1_test_save.py), so the golden assertions below check the
-parser against real SRAM. The synthetic tests start from that file, mutate
+(scripts/make_gen1_test_save.py) with known injected data, and
+tests/data/gen1_red_realplay.sav is a real 21-hour playthrough, so the golden
+assertions below check the parser against real SRAM. The synthetic tests start from that file, mutate
 it (box banks, glitch species, duplicate IDs), and re-apply the game's
 checksums.
 """
@@ -12,11 +13,12 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from parser import gen1, sync
+from parser import data_loader, gen1, sync
 from parser.gen1 import layout, pokemon
 from parser.parse_save import detect_generation, parse
 
 _SAVE = Path(__file__).parent / "data" / "gen1_red_ingame.sav"
+_REALPLAY = Path(__file__).parent / "data" / "gen1_red_realplay.sav"
 
 
 def _load() -> bytearray:
@@ -143,6 +145,67 @@ class TestInGameSave(unittest.TestCase):
         self.assertEqual(lax["species_name"], "Snorlax")
         self.assertEqual(lax["nickname"], "LAX")
         self.assertEqual(lax["level"], 31)  # deposited at 30; 37300 EXP >= Slow Lv31 (37238)
+
+
+# ---------------------------------------------------------------------------
+# Golden: a real 21-hour Pokémon Red playthrough (4 badges, Celadon)
+# ---------------------------------------------------------------------------
+
+class TestRealPlaySave(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls) -> None:
+        cls.data = parse(str(_REALPLAY))
+
+    def test_detected_and_clean(self) -> None:
+        self.assertEqual(self.data["save_metadata"]["generation"], 1)
+        self.assertEqual(self.data["warnings"], [])
+
+    def test_trainer_and_progress(self) -> None:
+        t = self.data["trainer"]
+        self.assertEqual((t["name"], t["rival_name"], t["trainer_id"]), ("MY BUTT", "GARY MF", 976))
+        self.assertEqual(t["playtime"], {"hours": 21, "minutes": 22, "seconds": 20})
+        self.assertEqual((t["money"], t["coins"]), (44012, 0))
+        self.assertEqual(self.data["badges"]["obtained"],
+                         ["Boulder Badge", "Cascade Badge", "Thunder Badge", "Rainbow Badge"])
+        self.assertEqual(self.data["location"]["name"], "Celadon Pokémon Center")
+        self.assertEqual(self.data["pokedex"], {"seen": 80, "caught": 30})
+
+    def test_party(self) -> None:
+        party = self.data["party"]
+        self.assertEqual([(m["species_name"], m["level"]) for m in party], [
+            ("Alakazam", 25), ("Geodude", 27), ("Jigglypuff", 26),
+            ("Gyarados", 27), ("Charmander", 27), ("Beedrill", 27),
+        ])
+        gyarados = party[3]
+        self.assertEqual(gyarados["types"], ["Water", "Flying"])
+        self.assertEqual([m["name"] for m in gyarados["moves"]], ["Bite", "Tackle", "Dragon Rage", "Thunderbolt"])
+        self.assertEqual(gyarados["moves"][0]["type"], "Normal")  # Bite is Normal in Gen 1
+        self.assertEqual(gyarados["stats"], {"attack": 77, "defense": 54, "speed": 60, "special": 64})
+
+    def test_boxes(self) -> None:
+        boxes = self.data["boxes"]
+        self.assertEqual(len(boxes[0]["pokemon"]), 16)
+        # Bank 2 holds a stale copy of box 1, but the player has never
+        # changed boxes (bit 7 clear), so the game ignores the banks.
+        self.assertTrue(all(not b["pokemon"] for b in boxes[1:]))
+        dux = boxes[0]["pokemon"][11]
+        self.assertEqual((dux["species_name"], dux["nickname"], dux["pid"]), ("Farfetch'd", "DUX", "0x0807231C"))
+
+    def test_levels_match_exp(self) -> None:
+        species = data_loader.load_gen1_species()
+        mons = self.data["party"] + [m for b in self.data["boxes"] for m in b["pokemon"]]
+        self.assertEqual(len(mons), 22)
+        for mon in mons:
+            with self.subTest(mon=mon["species_name"]):
+                growth = species[str(mon["species_id"])]["growth_rate"]
+                self.assertEqual(pokemon.level_from_exp(mon["experience"], growth), mon["level"])
+
+    def test_inventory(self) -> None:
+        inv = self.data["inventory"]
+        self.assertEqual(len(inv["items"]), 16)
+        self.assertEqual(inv["items"][-1], {"name": "TM21", "quantity": 1})
+        self.assertEqual(len(inv["pc"]), 32)
+        self.assertIn({"name": "Helix Fossil", "quantity": 1}, inv["pc"])
 
 
 # ---------------------------------------------------------------------------

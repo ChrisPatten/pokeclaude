@@ -51,7 +51,9 @@ refactors, reference-data corrections, new reference files — is **minor** or
   local `tests/fixtures/sapphire.golden.json`, regenerate it once with
   `UPDATE_GOLDEN=1 python3 -m unittest tests.test_parser_golden`.
 - `tests/data/gen1_red_ingame.sav`, a save written by Pokémon Red itself, and
-  `scripts/make_gen1_test_save.py` to regenerate it.
+  `scripts/make_gen1_test_save.py` to regenerate it; plus
+  `tests/data/gen1_red_realplay.sav`, a real 21-hour Red playthrough used as
+  a second golden fixture.
 
 ### Changed
 

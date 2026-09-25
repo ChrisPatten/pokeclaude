@@ -207,7 +207,7 @@ The `pokeclaude-sync` skill runs `python3 -m parser.sync <user_id>`, reads the r
 python3 -m unittest discover -s tests -v
 ```
 
-Most tests run against synthetic fixtures and need no setup. The Gen 1 tests (`tests/test_gen1_parser.py`) run against `tests/data/gen1_red_ingame.sav`, a committed save written by Pokémon Red's own save routine (see `scripts/make_gen1_test_save.py` for how it's produced). The golden test (`tests/test_parser_golden.py`) additionally needs a real save at `tests/fixtures/sapphire.srm` plus a matching `tests/fixtures/sapphire.golden.json` — both gitignored — and is skipped automatically when they're absent. Regenerate the golden file after an intentional parser change:
+Most tests run against synthetic fixtures and need no setup. The Gen 1 tests (`tests/test_gen1_parser.py`) run against two committed saves: `tests/data/gen1_red_ingame.sav`, written by Pokémon Red's own save routine with known injected data (see `scripts/make_gen1_test_save.py`), and `tests/data/gen1_red_realplay.sav`, a real 21-hour playthrough. The golden test (`tests/test_parser_golden.py`) additionally needs a real save at `tests/fixtures/sapphire.srm` plus a matching `tests/fixtures/sapphire.golden.json` — both gitignored — and is skipped automatically when they're absent. Regenerate the golden file after an intentional parser change:
 
 ```bash
 UPDATE_GOLDEN=1 python3 -m unittest tests.test_parser_golden
