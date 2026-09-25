@@ -26,7 +26,7 @@ refactors, reference-data corrections, new reference files — is **minor** or
 
 ## [Unreleased]
 
-## [0.1.0] - TBD
+## [0.1.0] - 2026-09-25
 
 First tagged release. Everything below shipped together as the project's
 starting baseline: daycare parsing, growth-rate-based leveling, shop data,
